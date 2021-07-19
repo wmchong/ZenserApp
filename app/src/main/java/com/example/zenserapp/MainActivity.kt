@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             //home, explore, sell, chat, me
+            //stupid github gnd
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
