@@ -1,13 +1,13 @@
-package com.example.zenserapp.ui.dashboard
+package com.example.zenserapp.ui.me
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
-
+class MeViewModel : ViewModel() {
+    // TODO: Implement the ViewModel
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is me Fragment"
     }
     val text: LiveData<String> = _text
 }

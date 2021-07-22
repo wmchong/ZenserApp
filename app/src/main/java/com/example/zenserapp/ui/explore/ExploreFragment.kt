@@ -1,4 +1,4 @@
-package com.example.zenserapp.ui.dashboard
+package com.example.zenserapp.ui.explore
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.zenserapp.R
-import com.example.zenserapp.databinding.FragmentDashboardBinding
+import com.example.zenserapp.databinding.FragmentExploreBinding
 
-class DashboardFragment : Fragment() {
+class ExploreFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var exploreViewModel: ExploreViewModel
+    private var _binding: FragmentExploreBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        exploreViewModel =
+            ViewModelProvider(this).get(ExploreViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentExploreBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        exploreViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

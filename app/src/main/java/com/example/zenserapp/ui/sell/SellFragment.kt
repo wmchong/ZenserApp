@@ -1,4 +1,4 @@
-package com.example.zenserapp.ui.notifications
+package com.example.zenserapp.ui.sell
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.zenserapp.R
-import com.example.zenserapp.databinding.FragmentNotificationsBinding
+import com.example.zenserapp.databinding.FragmentSellBinding
 
-class NotificationsFragment : Fragment() {
+class SellFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
-    private var _binding: FragmentNotificationsBinding? = null
+    private lateinit var sellViewModel: SellViewModel
+    private var _binding: FragmentSellBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        sellViewModel =
+            ViewModelProvider(this).get(SellViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentSellBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        sellViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
