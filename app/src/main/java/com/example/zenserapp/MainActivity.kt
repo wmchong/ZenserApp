@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.navigation_home, R.id.navigation_explore, R.id.navigation_sell, R.id.navigation_chat, R.id.navigation_me
             //home, explore, sell, chat, me
-            //stupid github gnd
+            //hello everyone, PUSH TEST
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
