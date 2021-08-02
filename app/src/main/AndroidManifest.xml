@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenserApp">
+        <activity android:name=".ui.categories.DealsPage"></activity>
+        <activity android:name=".ui.categories.WomenFashionHome" />
+        <activity android:name=".ui.categories.MenFashionHome" />
+        <activity android:name=".ui.categories.EducationHome" />
+        <activity android:name=".ui.categories.VoucherHome" />
+        <activity android:name=".ui.categories.ComputerAndTechHome" />
+        <activity android:name=".ui.categories.ServicesHome" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

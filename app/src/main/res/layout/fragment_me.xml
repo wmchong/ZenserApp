@@ -27,7 +27,7 @@
         android:paddingStart="8dp"
         android:paddingTop="8dp"
         android:paddingEnd="8dp"
-        android:src="@drawable/ic_search_black_24dp"
+        android:src="@drawable/ic_baseline_search_24"
         app:layout_constraintLeft_toRightOf="@+id/searchET"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -1,17 +1,24 @@
 package com.example.zenserapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentHomeBinding
+import com.example.zenserapp.ui.categories.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -25,17 +32,47 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+
+
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cvService.setOnClickListener {
+            val intent = Intent(context, ServicesHome::class.java)
+            context?.startActivity(intent)
+        }
+
+        binding.cvComputer.setOnClickListener {
+            val intent = Intent(context, ComputerAndTechHome::class.java)
+            context?.startActivity(intent)
+        }
+
+        binding.cvVouchers.setOnClickListener {
+            val intent = Intent(context, VoucherHome::class.java)
+            context?.startActivity(intent)
+        }
+        binding.cvEducation.setOnClickListener {
+            val intent = Intent(context, EducationHome::class.java)
+            context?.startActivity(intent)
+        }
+        binding.cvWomenFashion.setOnClickListener {
+            val intent = Intent(context, WomenFashionHome::class.java)
+            context?.startActivity(intent)
+        }
+        binding.cvMenFashion.setOnClickListener {
+            val intent = Intent(context, MenFashionHome::class.java)
+            context?.startActivity(intent)
+        }
+        binding.ivBlackfriday.setOnClickListener {
+           val intent = Intent(context, DealsPage::class.java)
+           context?.startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
