@@ -34,13 +34,5 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        val iphoneSearch = arrayOf("iphone", "iphone xs", "iphone xs case", "iphone cover", "iphone 12"
-            , "iphone 12 mini", "iphone 11", "iphone 12 pro", "iphone 11 pro"
-            , "iphone 11 pro max", "iphone case")
-        val iphoneAdapter: ArrayAdapter<String> = ArrayAdapter(
-            this, android.R.layout.simple_list_item_1, iphoneSearch
-        )
-
     }
 }
