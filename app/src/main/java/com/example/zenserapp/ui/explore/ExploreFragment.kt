@@ -15,6 +15,7 @@ class ExploreFragment : Fragment() {
     private var _binding: FragmentExploreBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
+    //its a nothing command
     private val binding get() = _binding!!
 
     private lateinit var exploreViewModel: ExploreViewModel
