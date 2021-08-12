@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_chat_page.xml" value="0.26721014492753625" />
-        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.4231274638633377" />
+        <entry key="app/src/main/res/drawable/ic_iphone2.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/drawable/ic_iphone_black2.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_chat_page.xml" value="0.24320652173913043" />
+        <entry key="app/src/main/res/layout/activity_listing1.xml" value="0.15572916666666667" />
+        <entry key="app/src/main/res/layout/activity_single_listing1.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_sell.xml" value="0.24320652173913043" />
+        <entry key="app/src/main/res/layout/item_layout.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/layout/row_results.xml" value="0.24320652173913043" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2453125" />
-        <entry key="app/src/main/res/menu/chat_menu.xml" value="0.2994791666666667" />
       </map>
     </option>
   </component>

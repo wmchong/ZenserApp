@@ -1,61 +1,78 @@
 package com.example.zenserapp.ui.explore
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import android.util.Log
+import android.view.*
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.zenserapp.MainActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.zenserapp.Listing1Activity
 import com.example.zenserapp.databinding.FragmentExploreBinding
 
-class ExploreFragment : Fragment() {
+class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
     private var _binding: FragmentExploreBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    //it's nothing command
+    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var exploreViewModel: ExploreViewModel
 
+    // possible results when searching iphone
+    val iphoneSearch = arrayOf(
+        ListingsModal(listingName = "iphone"),
+        ListingsModal(listingName = "iphone xs"),
+        ListingsModal(listingName = "iphone xs case"),
+        ListingsModal(listingName = "iphone cover"),
+        ListingsModal(listingName = "iphone 12"),
+        ListingsModal(listingName = "iphone 12 mini"),
+        ListingsModal(listingName = "iphone 11"),
+        ListingsModal(listingName = "iphone 12 pro"),
+        ListingsModal(listingName = "iphone 11 pro"),
+        ListingsModal(listingName = "iphone 11 pro max"),
+        ListingsModal(listingName = "iphone case"),
+        ListingsModal(listingName = "iphone 13 queue"),
+    )
+
+    val iphoneSearchList = ArrayList<ListingsModal>()
+    var listingsAdapter: ListingsAdapter? = null;
+
     override fun onCreateView( inflater: LayoutInflater,
-                               container: ViewGroup?,
-                               savedInstanceState: Bundle?
-    ): View? {
+                                container: ViewGroup?,
+                               savedInstanceState: Bundle?): View? {
         exploreViewModel = ViewModelProvider(this).get(ExploreViewModel::class.java)
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
+
+        for(items in iphoneSearch){
+            iphoneSearchList.add(items)
+        }
+
+        listingsAdapter = ListingsAdapter(this)
+        listingsAdapter!!.setData(iphoneSearchList)
+
+        binding.rvSearchingResults.layoutManager = LinearLayoutManager(context)
+        binding.rvSearchingResults.setHasFixedSize(true)
+        binding.rvSearchingResults.adapter = listingsAdapter
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //the example of searching iphone results
-        val iphoneSearch = arrayOf("iphone", "iphone xs", "iphone xs case", "iphone cover", "iphone 12"
-            , "iphone 12 mini", "iphone 11", "iphone 12 pro", "iphone 11 pro"
-            , "iphone 11 pro max", "iphone case")
-        val iphoneAdapter: ArrayAdapter<String> = ArrayAdapter(
-            activity as MainActivity, android.R.layout.simple_list_item_1, iphoneSearch
-        )
-
-        binding.lvSearchResultList.adapter = iphoneAdapter
-
         binding.expSearchingField.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 binding.expSearchingField.clearFocus()
-                if(iphoneSearch.contains(query)){
-                    iphoneAdapter.filter.filter(query)
+                val speItemModal = query?.let { ListingsModal(listingName = it) }
+                if(iphoneSearchList.contains(speItemModal)){
+                    listingsAdapter!!.filter.filter(query)
                 }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                iphoneAdapter.filter.filter(newText)
+                listingsAdapter!!.filter.filter(newText)
                 return false
             }
-
         })
 
     }
@@ -63,5 +80,16 @@ class ExploreFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun ClickedItem(listingsModal: ListingsModal) {
+        Log.e("TAG", listingsModal.listingName)
+
+        when(listingsModal.listingName){
+            "iphone" -> startActivity(Intent(context, Listing1Activity::class.java))
+            else -> {
+                Toast.makeText(context,"No action",Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

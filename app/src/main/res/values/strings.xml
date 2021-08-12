@@ -5,6 +5,9 @@
     <string name="title_sell">Sell</string>
     <string name="title_chat">Chat</string>
     <string name="title_me">Me</string>
-    <string name="title">Title</string>
+    <string name="title_activity_single_listing1">single_listing_1</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
 </resources>
