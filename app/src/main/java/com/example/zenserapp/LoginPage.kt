@@ -34,7 +34,7 @@ class LoginPage : AppCompatActivity() {
     }
 
     private fun validate(userName:String,userPassword:String){
-        if((userName=="zenser")&&(userPassword=="resnez")){
+        if((userName=="zenser")&&(userPassword=="123")){
             val intent= Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
