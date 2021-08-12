@@ -1,6 +1,7 @@
 package com.example.zenserapp
 
 import android.os.Bundle
+import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,12 +11,15 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.zenserapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var actionbar: ActionBar
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+    //   supportActionBar.setBackgroundDrawable(resources.getColor(R.color.light_blue_900))
+
+
+        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

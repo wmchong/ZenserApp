@@ -1,7 +1,10 @@
 package com.example.zenserapp.ui.categories
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
+import com.example.zenserapp.MainActivity
 import com.example.zenserapp.R
 
 class ComputerAndTechHome : AppCompatActivity() {

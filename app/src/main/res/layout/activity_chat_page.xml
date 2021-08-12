@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="text"
-                android:background="@color/light_grey"
+                android:background="#e3cbca"
                 android:hint="Type Message"
                 android:padding="12dp" />
 

@@ -27,10 +27,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/iv_page2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView"
             android:src="@drawable/computer"/>
+
     </RelativeLayout>
 
 

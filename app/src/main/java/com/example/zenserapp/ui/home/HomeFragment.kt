@@ -70,7 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             context?.startActivity(intent)
         }
         binding.ivBlackfriday.setOnClickListener {
-           val intent = Intent(context, DealsPage::class.java)
+           val intent = Intent(context, DealsPageHome::class.java)
            context?.startActivity(intent)
         }
     }
