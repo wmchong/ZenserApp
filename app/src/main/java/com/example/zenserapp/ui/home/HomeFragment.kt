@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.denzcoskun.imageslider.ImageSlider
-import com.denzcoskun.imageslider.models.SlideModel
+//import com.denzcoskun.imageslider.ImageSlider
+//import com.denzcoskun.imageslider.models.SlideModel
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentHomeBinding
 import com.example.zenserapp.ui.categories.*

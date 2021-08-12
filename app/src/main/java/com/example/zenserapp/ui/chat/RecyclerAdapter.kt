@@ -1,18 +1,20 @@
 package com.example.zenserapp.ui.chat
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenserapp.R
 
-class RecyclerAdapter (private var titles: List<String>, private var details: List<String>, private var images: List<Int>):
+class RecyclerAdapter(var c: Context, private var titles: List<String>, private var details: List<String>, private var images: List<Int>):
 RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
         val itemTitle: TextView=itemView.findViewById(R.id.tv_title)
         val itemDetail: TextView=itemView.findViewById(R.id.tv_description)
         val itemPicture: ImageView =itemView.findViewById(R.id.iv_image)
@@ -20,12 +22,9 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         init {
             itemView.setOnClickListener{v: View->
                 val position: Int = adapterPosition
-                Toast.makeText(itemView.context,"You clicked on item # ${position+1}",Toast.LENGTH_SHORT)
-
-
+                Toast.makeText(itemView.context,"You clicked on item # ${position+1}",Toast.LENGTH_SHORT).show()
             }
         }
-
 
     }
 
@@ -38,6 +37,10 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         holder.itemTitle.text= titles[position]
         holder.itemDetail.text= details[position]
         holder.itemPicture.setImageResource(images[position])
+        holder.itemView.rootView.setOnClickListener{
+            var chatIntent = Intent(c, ChatPage::class.java)
+            c.startActivity(chatIntent)
+        }
     }
 
     override fun getItemCount(): Int {

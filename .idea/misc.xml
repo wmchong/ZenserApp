@@ -3,20 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/category_layout.xml" value="0.20885416666666667" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/example_item.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/fragment_chat.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/fragment_sell.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/item_layout.xml" value="0.20885416666666667" />
-        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_women_fashion_home.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_home.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.14719202898550723" />
-        <entry key="app/src/main/res/drawable-v24/ic_arrow_back_black_24dp.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/drawable-v24/ic_search_black_24dp.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/drawable-v24/searching_bar_layout.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/drawable/ic_discover_24dp.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/drawable/search_background.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.19583333333333333" />
+        <entry key="app/src/main/res/layout/activity_chat_page.xml" value="0.26721014492753625" />
+        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.4231274638633377" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2453125" />
+        <entry key="app/src/main/res/menu/chat_menu.xml" value="0.2994791666666667" />
       </map>
     </option>
   </component>

@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenserApp">
-        <activity android:name=".ui.categories.DealsPage"></activity>
+        <activity
+            android:name=".ui.chat.ChatPage"
+            android:exported="true" />
+        <activity android:name=".ui.categories.DealsPage" />
         <activity android:name=".ui.categories.WomenFashionHome" />
         <activity android:name=".ui.categories.MenFashionHome" />
         <activity android:name=".ui.categories.EducationHome" />

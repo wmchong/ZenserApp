@@ -1,6 +1,6 @@
 package com.example.zenserapp.ui.chat
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentChatBinding
-import com.example.zenserapp.databinding.FragmentMeBinding
-import com.example.zenserapp.ui.chat.RecyclerAdapter
-
 
 
 class ChatFragment : Fragment() {
@@ -22,6 +19,8 @@ class ChatFragment : Fragment() {
     private var titlesList = mutableListOf<String>()
     private var descList = mutableListOf<String>()
     private var imagesList = mutableListOf<Int>()
+
+    val users: Array<String> = arrayOf("Jim", "Anne", "Bob")
 
 
     companion object {
@@ -40,7 +39,8 @@ class ChatFragment : Fragment() {
         postToList()
 
         binding.rvRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.rvRecyclerView.adapter = RecyclerAdapter(titlesList, descList, imagesList)
+        binding.rvRecyclerView.adapter =
+            context?.let { RecyclerAdapter(it, titlesList, descList, imagesList) }
 
         return binding.root
 
@@ -64,9 +64,17 @@ class ChatFragment : Fragment() {
     }
 
     private fun postToList() {
-        for (i in 1..25){
-            addToList("Title $i", "Description $i", R.mipmap.ic_launcher_round)
+        for (i in 1..3){
+            addToList(users[i-1], "Description $i", R.mipmap.ic_launcher_round)
         }
     }
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        binding.rvRecyclerView.setOnClickListener {
+//            val intent = Intent(context, ChatPage::class.java)
+//            context?.startActivity(intent)
+//        }
+//    }
 
 }
