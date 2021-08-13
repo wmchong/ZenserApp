@@ -45,24 +45,37 @@ class RegisterPage : AppCompatActivity() {
         registerButton=findViewById(R.id.b_register)
 
         registerButton.setOnClickListener{
-            if(password.text.toString()==passwordConfirm.text.toString()) {
-                val contentValues = ContentValues()
-                contentValues.put("NAME", name.text.toString())
-                contentValues.put("USERNAME", username.text.toString())
-                contentValues.put("EMAIL", email.text.toString())
-                contentValues.put("PASSWORD", password.text.toString())
-                myDB.insert("USERS", null, contentValues)
-
-                Toast.makeText(applicationContext,"Registration Successful",Toast.LENGTH_SHORT).show()
-
-                val intent=Intent(this,LoginPage::class.java)
-                startActivity(intent)
+            val getName=name.text.toString()
+            val getUsername=username.text.toString()
+            val getEmail=email.text.toString()
+            val getPassword=password.text.toString()
+            val getPasswordConfirm=passwordConfirm.text.toString()
+            if(getName==""||getUsername==""||getEmail==""||getPassword==""||getPasswordConfirm==""){
+                status.setText("Fields are empty")
             }
-            else{
-                status.text="Password does not match"
-                password.setText("")
-                passwordConfirm.setText("")
-                password.requestFocus()
+            else {
+                if (password.text.toString() == passwordConfirm.text.toString()) {
+                    val contentValues = ContentValues()
+                    contentValues.put("NAME", name.text.toString())
+                    contentValues.put("USERNAME", username.text.toString())
+                    contentValues.put("EMAIL", email.text.toString())
+                    contentValues.put("PASSWORD", password.text.toString())
+                    myDB.insert("USERS", null, contentValues)
+
+                    Toast.makeText(
+                        applicationContext,
+                        "Registration Successful",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    val intent = Intent(this, LoginPage::class.java)
+                    startActivity(intent)
+                } else {
+                    status.text = "Password does not match"
+                    password.setText("")
+                    passwordConfirm.setText("")
+                    password.requestFocus()
+                }
             }
 
             }

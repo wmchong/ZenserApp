@@ -14,4 +14,8 @@ class ListingDetails : AppCompatActivity() {
 
         actionBar.setDisplayHomeAsUpEnabled(true)
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }

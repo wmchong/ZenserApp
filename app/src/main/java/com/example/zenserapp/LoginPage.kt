@@ -31,17 +31,23 @@ class LoginPage : AppCompatActivity() {
          registerButton = findViewById(R.id.b_create_new_account)
 
          loginButton.setOnClickListener {
-             val getUsername:String=username.text.toString()
-             val getPassword:String=password.text.toString()
-             val usernamePassword= listOf<String>(getUsername,getPassword).toTypedArray()
-             val rs= myDB.rawQuery("SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?",usernamePassword)
+             val getUsername: String = username.text.toString()
+             val getPassword: String = password.text.toString()
+             if (getUsername == "" || getPassword == "") {
+                 status.text = "Fields are empty"
+             } else {
+                 val usernamePassword = listOf<String>(getUsername, getPassword).toTypedArray()
+                 val rs = myDB.rawQuery(
+                     "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?",
+                     usernamePassword
+                 )
 
-             if (rs.moveToNext()) {
-                 val intent = Intent(this, MainActivity::class.java)
-                 startActivity(intent)
-             }
-             else{
-                  status.text = "username or password is incorrect"
+                 if (rs.moveToNext()) {
+                     val intent = Intent(this, MainActivity::class.java)
+                     startActivity(intent)
+                 } else {
+                     status.text = "username or password is incorrect"
+                 }
              }
          }
          registerButton.setOnClickListener{
