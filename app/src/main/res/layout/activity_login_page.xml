@@ -16,6 +16,12 @@
             android:layout_height="230dp"
             android:background="@drawable/backgroung_login">
             <ImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/zenserlogo"/>
+            <ImageView
                 android:layout_width="98dp"
                 android:layout_height="98dp"
                 android:layout_gravity="center_horizontal"
