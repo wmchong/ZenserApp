@@ -162,6 +162,37 @@
                 android:src="@drawable/password_icon" />
 
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="62dp"
+            android:background="@drawable/background_edit_text">
+
+            <EditText
+                android:id="@+id/et_password_confirm_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/iv_password_confirm_icon"
+                android:background="@android:color/transparent"
+                android:hint="Confirm password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/iv_password_confirm_icon"
+                android:layout_width="16dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/password_icon" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/b_register"
