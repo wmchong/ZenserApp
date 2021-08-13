@@ -15,7 +15,7 @@ class SellRecyclerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val cellForRow = layoutInflater.inflate(R.layout.example_item,parent,false)
+        val cellForRow = layoutInflater.inflate(R.layout.category_item,parent,false)
         return CustomViewHolder(cellForRow)
     }
 

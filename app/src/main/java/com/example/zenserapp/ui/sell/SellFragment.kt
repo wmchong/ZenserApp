@@ -1,5 +1,6 @@
 package com.example.zenserapp.ui.sell
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,8 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(context,"Item $position clicked", Toast.LENGTH_SHORT).show()
+        val intent = Intent(context, ListingDetails::class.java)
+        context?.startActivity(intent)
     }
 
     private fun generateCategoryList(): List<Category> {

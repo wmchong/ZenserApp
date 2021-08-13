@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenserApp">
         <activity
+            android:name=".ui.sell.ListingDetails"
+            android:parentActivityName=".ui.sell.SellFragment"
+            android:exported="true" />
+        <activity
             android:name=".single_listing1"
             android:exported="true" />
         <activity
