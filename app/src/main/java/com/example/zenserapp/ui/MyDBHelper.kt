@@ -12,7 +12,7 @@ class MyDBHelper(context: Context) : SQLiteOpenHelper(context,"LOGIN_REGISTER",n
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS LOGIN_REGISTER")
+        db?.execSQL("DROP TABLE IF EXISTS USERS")
         onCreate(db)
     }
 
