@@ -6,51 +6,41 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.zenserapp.databinding.ActivityLoginPageBinding
+import com.example.zenserapp.databinding.FragmentMeBinding
 import com.example.zenserapp.ui.MyDBHelper
+import com.example.zenserapp.ui.me.MeFragment
 
 class LoginPage : AppCompatActivity() {
-    private lateinit var status: TextView
-    private lateinit var username: EditText
-    private lateinit var password: EditText
-    private lateinit var loginButton: Button
-    private lateinit var registerButton: Button
+    private lateinit var binding: ActivityLoginPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_page)
+
+        binding= ActivityLoginPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //database
-        var helperDB= MyDBHelper(applicationContext)
-        var myDB = helperDB.readableDatabase
+        val helperDB= MyDBHelper(applicationContext)
+       // val myDB = helperDB.readableDatabase
 
-         status=findViewById(R.id.tv_status_login)
-         username=findViewById(R.id.et_username_login)
-         password=findViewById(R.id.et_password_login)
-
-         loginButton = findViewById(R.id.b_login)
-         registerButton = findViewById(R.id.b_create_new_account)
-
-         loginButton.setOnClickListener {
-             val getUsername: String = username.text.toString()
-             val getPassword: String = password.text.toString()
+         binding.bLogin.setOnClickListener {
+             val getUsername: String = binding.etUsernameLogin.text.toString()
+             val getPassword: String = binding.etPasswordLogin.text.toString()
              if (getUsername == "" || getPassword == "") {
-                 status.text = "Fields are empty"
+                 binding.tvStatusLogin.text = "Fields are empty"
              } else {
-                 val usernamePassword = listOf<String>(getUsername, getPassword).toTypedArray()
-                 val rs = myDB.rawQuery(
-                     "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?",
-                     usernamePassword
-                 )
-
-                 if (rs.moveToNext()) {
+               val verify= helperDB.verifyUsernamePassword(getUsername,getPassword)
+                 if (verify) {
                      val intent = Intent(this, MainActivity::class.java)
+                     intent.putExtra("USERNAME",getUsername)
                      startActivity(intent)
                  } else {
-                     status.text = "username or password is incorrect"
+                     binding.tvStatusLogin.text = "username or password is incorrect"
                  }
              }
          }
-         registerButton.setOnClickListener{
+         binding.bCreateNewAccount.setOnClickListener{
              val intent= Intent(this,RegisterPage::class.java)
              startActivity(intent)
          }

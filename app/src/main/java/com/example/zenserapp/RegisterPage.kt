@@ -8,25 +8,20 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.zenserapp.databinding.ActivityRegisterPageBinding
 import com.example.zenserapp.ui.MyDBHelper
 
 class RegisterPage : AppCompatActivity() {
 
-    private lateinit var status: TextView
-    private lateinit var name: EditText
-    private lateinit var username: EditText
-    private lateinit var email: EditText
-    private lateinit var password: EditText
-    private lateinit var passwordConfirm: EditText
-    private lateinit var registerButton: Button
+    private lateinit var binding: ActivityRegisterPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_page)
+        binding= ActivityRegisterPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //database
         val helperDB= MyDBHelper(applicationContext)
-        val myDB=helperDB.readableDatabase
 
         //action bar
         val actionbar = supportActionBar
@@ -34,34 +29,19 @@ class RegisterPage : AppCompatActivity() {
         //back button
         actionbar.setDisplayHomeAsUpEnabled(true)
 
-        status=findViewById(R.id.tv_status_register)
+        binding.bRegister.setOnClickListener{
+            val getName=binding.etFullnameRegister.text.toString()
+            val getUsername=binding.etUsernameRegister.text.toString()
+            val getEmail=binding.etEmailRegister.text.toString()
+            val getPassword=binding.etPasswordRegister.text.toString()
+            val getPasswordConfirm=binding.etPasswordConfirmRegister.text.toString()
 
-        name=findViewById(R.id.et_fullname_register)
-        username=findViewById(R.id.et_username_register)
-        email=findViewById(R.id.et_email_register)
-        password=findViewById(R.id.et_password_register)
-        passwordConfirm=findViewById(R.id.et_password_confirm_register)
-
-        registerButton=findViewById(R.id.b_register)
-
-        registerButton.setOnClickListener{
-            val getName=name.text.toString()
-            val getUsername=username.text.toString()
-            val getEmail=email.text.toString()
-            val getPassword=password.text.toString()
-            val getPasswordConfirm=passwordConfirm.text.toString()
             if(getName==""||getUsername==""||getEmail==""||getPassword==""||getPasswordConfirm==""){
-                status.setText("Fields are empty")
+                binding.tvStatusRegister.setText("Fields are empty")
             }
             else {
-                if (password.text.toString() == passwordConfirm.text.toString()) {
-                    val contentValues = ContentValues()
-                    contentValues.put("NAME", name.text.toString())
-                    contentValues.put("USERNAME", username.text.toString())
-                    contentValues.put("EMAIL", email.text.toString())
-                    contentValues.put("PASSWORD", password.text.toString())
-                    myDB.insert("USERS", null, contentValues)
-
+                if (getPassword == getPasswordConfirm) {
+                    helperDB.insert(getName,getUsername,getEmail,getPassword)
                     Toast.makeText(
                         applicationContext,
                         "Registration Successful",
@@ -71,10 +51,10 @@ class RegisterPage : AppCompatActivity() {
                     val intent = Intent(this, LoginPage::class.java)
                     startActivity(intent)
                 } else {
-                    status.text = "Password does not match"
-                    password.setText("")
-                    passwordConfirm.setText("")
-                    password.requestFocus()
+                    binding.tvStatusRegister.text = "Password does not match"
+                    binding.etPasswordRegister.setText("")
+                    binding.etPasswordConfirmRegister.setText("")
+                    binding.etPasswordRegister.requestFocus()
                 }
             }
 
