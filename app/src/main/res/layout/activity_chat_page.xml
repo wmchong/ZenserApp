@@ -5,49 +5,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/l1"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:orientation="horizontal">-->
+    <TextView
+        android:id="@+id/chat_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_edit_text"
+        android:backgroundTint="@color/dark_grey"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="10:03 am"
+        android:textAlignment="center" />
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/imgBack"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_weight="0.5"-->
-<!--            android:padding="5dp"-->
-<!--            android:src="@drawable/ic_baseline_chevron_left_24" />-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tvUserName"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="2"-->
-<!--            android:text=""-->
-<!--            android:textAlignment="center"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imgProfile"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_weight="0.5"-->
-<!--            android:padding="5dp"-->
-<!--            android:src="@mipmap/ic_launcher_round" />-->
-
-<!--    </LinearLayout>-->
-
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:id="@+id/userRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/r1"/>
-        //android:layout_below="@id/l1"
+        android:layout_above="@id/r1"
+        android:layout_below="@id/chat_time"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/message_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/message_right_side_background"
+                    android:padding="10dp"
+                    android:text="Hi! Is this available?"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@mipmap/ic_launcher_round" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/message_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_user1" />
+
+                <TextView
+                    android:id="@+id/message_2_text"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/message_left_side_background"
+                    android:padding="10dp"
+                    android:text="Thank you for shopping with us! Yes we do have some in stock."
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/message_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:id="@+id/bn"
+                    android:layout_width="220dp"
+                    android:layout_height="190dp"
+                    android:background="@drawable/message_right_side_background"
+                    android:src="@drawable/ic_iphone_black"
+                    android:scaleType="centerInside"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@mipmap/ic_launcher_round" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/message_3_text"
+                        android:layout_width="220dp"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="45dp"
+                        android:background="@drawable/message_right_side_background"
+                        android:padding="10dp"
+                        android:text="Congratulations! you have made an offer for this at S$1609."
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/wait_for_seller_button"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="70dp"
+                        android:height="10dp"
+                        android:backgroundTint="@android:color/holo_green_light"
+                        android:text="Waiting for seller to respond..."
+                        android:textAllCaps="false"
+                        android:textSize="11sp" />
+
+                    <Button
+                        android:id="@+id/cancel_offer_button"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="120dp"
+                        android:height="10dp"
+                        android:backgroundTint="@android:color/holo_red_dark"
+                        android:text="Cancel the offer"
+                        android:textAllCaps="false"
+                        android:textSize="11sp" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <RelativeLayout
         android:id="@+id/r1"
@@ -67,9 +183,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="text"
-                android:background="#e3cbca"
+                android:background="@color/light_grey"
                 android:hint="Type Message"
-                android:padding="12dp" />
+                android:padding="12dp"/>
 
             <ImageButton
                 android:id="@+id/btnSendMessage"

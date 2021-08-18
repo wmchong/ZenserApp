@@ -20,7 +20,8 @@ class ChatFragment : Fragment() {
     private var descList = mutableListOf<String>()
     private var imagesList = mutableListOf<Int>()
 
-    val users: Array<String> = arrayOf("Jim", "Anne", "Bob")
+    val users: Array<String> = arrayOf("iAmBuyer1", "Anne", "Bob")
+    val userIcons: Array<Int> = arrayOf(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round)
 
 
     companion object {
@@ -65,7 +66,7 @@ class ChatFragment : Fragment() {
 
     private fun postToList() {
         for (i in 1..3){
-            addToList(users[i-1], "Description $i", R.mipmap.ic_launcher_round)
+            addToList(users[i-1], "Description $i", userIcons[i-1])
         }
     }
 

@@ -39,6 +39,8 @@ RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
         holder.itemPicture.setImageResource(images[position])
         holder.itemView.rootView.setOnClickListener{
             var chatIntent = Intent(c, ChatPage::class.java)
+            chatIntent.putExtra("SELLERNAME", titles[position])
+            chatIntent.putExtra("picture", images[position])
             c.startActivity(chatIntent)
         }
     }
