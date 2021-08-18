@@ -7,10 +7,13 @@ import android.view.*
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenserapp.Listing1Activity
+import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentExploreBinding
+import com.example.zenserapp.ui.home.HomeFragment
 
 class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
     private var _binding: FragmentExploreBinding? = null
@@ -75,6 +78,8 @@ class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
             }
         })
 
+        binding.btnBack.setOnClickListener {
+        }
     }
 
     override fun onDestroyView() {
@@ -84,12 +89,9 @@ class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
 
     override fun ClickedItem(listingsModal: ListingsModal) {
         Log.e("TAG", listingsModal.listingName)
-
-        when(listingsModal.listingName){
-            "iphone" -> startActivity(Intent(context, Listing1Activity::class.java))
-            else -> {
-                Toast.makeText(context,"No action",Toast.LENGTH_LONG).show()
-            }
-        }
+        val keyWord = listingsModal.listingName
+        val intent = Intent(context, Listing1Activity::class.java)
+        intent.putExtra("SearchingKeyWord",keyWord)
+        startActivity(intent)
     }
 }

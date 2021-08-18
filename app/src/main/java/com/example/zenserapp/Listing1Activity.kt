@@ -15,6 +15,9 @@ class Listing1Activity : AppCompatActivity() {
         //setContentView(R.layout.activity_listing1)
         setContentView(binding.root)
 
+        val getKeyWord = intent?.getStringExtra("SearchingKeyWord")
+        binding.tvTextInSearchBox.text = getKeyWord
+
         binding.cvListing1.setOnClickListener {
             startActivity(Intent(this, single_listing1::class.java))
         }

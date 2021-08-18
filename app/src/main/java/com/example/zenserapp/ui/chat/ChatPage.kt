@@ -9,14 +9,23 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.Toast
+import com.example.zenserapp.databinding.ActivityChatPageBinding
+import com.example.zenserapp.databinding.ActivitySingleListing1Binding
 
 
 class ChatPage : AppCompatActivity() {
     //private lateinit var c: Context
+    private lateinit var binding:ActivityChatPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Payal pre
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_chat_page)
+
+        //Dana edit
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chat_page)
+        binding = ActivityChatPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 //        val btn = findViewById<ImageButton>(R.id.imgBack)
 //        btn.setOnClickListener {
@@ -26,7 +35,12 @@ class ChatPage : AppCompatActivity() {
 
         //action bar
         val actionbar = supportActionBar
-        actionbar!!.title = "Chat Page"
+
+        //get buyer name
+        val sellerName = intent?.getStringExtra("SELLERNAME")
+        actionbar!!.title = sellerName
+
+        //actionbar!!.title = "Chat Page"
         //back button
         actionbar.setDisplayHomeAsUpEnabled(true)
 
