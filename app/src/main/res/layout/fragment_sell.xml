@@ -14,17 +14,17 @@
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selCategoryTV"
-        app:layout_constraintVertical_bias="0.636" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/selCategoryTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="260dp"
         android:text="Select Category"
         android:textColor="@android:color/black"
         android:textSize="16sp"
@@ -45,16 +45,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/saveImageIV"
-        android:layout_width="82dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_search_24"
-        app:layout_constraintBottom_toTopOf="@+id/selCategoryTV"
+    <ImageSwitcher
+        android:id="@+id/saveImageIS"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addImageTV"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@id/addImageTV" />
+
+    <Button
+        android:id="@+id/prevImageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Previous"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveImageIS" />
+
+    <Button
+        android:id="@+id/nextImageBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveImageIS" />
+
+    <Button
+        android:id="@+id/pickImagesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Images"
+        app:layout_constraintEnd_toStartOf="@+id/nextImageBtn"
+        app:layout_constraintStart_toEndOf="@+id/prevImageBtn"
+        app:layout_constraintTop_toBottomOf="@+id/saveImageIS" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
