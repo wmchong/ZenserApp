@@ -3,6 +3,11 @@ package com.example.zenserapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.PopupMenu
+import androidx.appcompat.app.AlertDialog
 import com.example.zenserapp.databinding.ActivityListing1Binding
 import com.example.zenserapp.databinding.ActivitySingleListing1Binding
 import com.example.zenserapp.ui.chat.ChatPage
@@ -21,13 +26,42 @@ class single_listing1 : AppCompatActivity() {
         //back button
         actionbar.setDisplayHomeAsUpEnabled(true)
 
+        val sellerName = binding.tvSellerName.text
         binding.btnChat.setOnClickListener {
-            val sellerName = binding.tvSellerName.text
             val intent = Intent(this, ChatPage::class.java)
             intent.putExtra("SELLERNAME", sellerName)
             startActivity(intent)
         }
 
+        //make an offer button click to show price dialog
+        binding.btnMakeOffer.setOnClickListener {
+            //inflate the dialog with custom view
+            var dialogView =layoutInflater.inflate(R.layout.make_offer_dialog,null)
+            //AlertDialogBuilder
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setView(dialogView)
+            dialogBuilder.setTitle("iAmBuyer is selling this for $1399")
+            //show dialog
+            val offerDialogAlert = dialogBuilder.show()
+
+            //when user clicks on cancel button
+            dialogView.findViewById<Button>(R.id.btnCancel).setOnClickListener {
+                offerDialogAlert.dismiss()
+            }
+
+            //when user confirms the offer
+            dialogView.findViewById<Button>(R.id.btnConfirmOffer).setOnClickListener {
+                //dismiss dialog
+                offerDialogAlert.dismiss()
+                //get input price from EditTexts of custom layout
+                val enterPrice = dialogView.findViewById<EditText>(R.id.etOfferPrice).text.toString()
+                Log.e("Enter Price", enterPrice)
+                val intent = Intent(this, ChatPage::class.java)
+                intent.putExtra("SELLERNAME", sellerName)
+                intent.putExtra("OFFERPRICE", enterPrice)
+                startActivity(intent)
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

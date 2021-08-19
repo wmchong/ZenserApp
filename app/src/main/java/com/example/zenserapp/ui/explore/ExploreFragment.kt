@@ -25,7 +25,7 @@ class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
     // possible results when searching iphone
     val iphoneSearch = arrayOf(
         ListingsModal(listingName = "iphone"),
-        ListingsModal(listingName = "iphone xs"),
+        ListingsModal(listingName = "iphonexs"),
         ListingsModal(listingName = "iphone xs case"),
         ListingsModal(listingName = "iphone cover"),
         ListingsModal(listingName = "iphone 12"),
@@ -36,6 +36,7 @@ class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
         ListingsModal(listingName = "iphone 11 pro max"),
         ListingsModal(listingName = "iphone case"),
         ListingsModal(listingName = "iphone 13 queue"),
+        ListingsModal(listingName = "sneaker")
     )
 
     val iphoneSearchList = ArrayList<ListingsModal>()

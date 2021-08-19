@@ -28,6 +28,7 @@ class LoginPage : AppCompatActivity() {
          binding.bLogin.setOnClickListener {
              val getUsername: String = binding.etUsernameLogin.text.toString()
              val getPassword: String = binding.etPasswordLogin.text.toString()
+
              if (getUsername == "" || getPassword == "") {
                  binding.tvStatusLogin.text = "Fields Are Empty"
              } else {
@@ -35,6 +36,7 @@ class LoginPage : AppCompatActivity() {
                  if (verify) {
                      val intent = Intent(this, MainActivity::class.java)
                      intent.putExtra("USERNAME",getUsername)
+                     intent.putExtra("USERID",getUsername)
                      startActivity(intent)
                  } else {
                      binding.tvStatusLogin.text = "username or password is incorrect"

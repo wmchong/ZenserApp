@@ -31,6 +31,10 @@
             android:name=".RegisterPage"
             android:exported="true" />
         <activity
+            android:name=".ui.sell.ListingDetails"
+            android:parentActivityName=".ui.sell.SellFragment"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
