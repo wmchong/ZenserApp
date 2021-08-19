@@ -37,7 +37,7 @@ class RegisterPage : AppCompatActivity() {
             val getPasswordConfirm=binding.etPasswordConfirmRegister.text.toString()
 
             if(getName==""||getUsername==""||getEmail==""||getPassword==""||getPasswordConfirm==""){
-                binding.tvStatusRegister.setText("Fields are empty")
+                binding.tvStatusRegister.setText("Fields Are Empty")
             }
             else {
                 if (getPassword == getPasswordConfirm) {

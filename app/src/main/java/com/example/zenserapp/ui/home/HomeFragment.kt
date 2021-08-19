@@ -2,18 +2,11 @@ package com.example.zenserapp.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-//import com.denzcoskun.imageslider.ImageSlider
-//import com.denzcoskun.imageslider.models.SlideModel
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentHomeBinding
 import com.example.zenserapp.ui.categories.*

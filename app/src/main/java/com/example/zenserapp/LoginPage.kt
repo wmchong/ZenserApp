@@ -3,13 +3,9 @@ package com.example.zenserapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import com.example.zenserapp.databinding.ActivityLoginPageBinding
-import com.example.zenserapp.databinding.FragmentMeBinding
 import com.example.zenserapp.ui.MyDBHelper
-import com.example.zenserapp.ui.me.MeFragment
+
 
 class LoginPage : AppCompatActivity() {
     private lateinit var binding: ActivityLoginPageBinding
@@ -24,11 +20,16 @@ class LoginPage : AppCompatActivity() {
         val helperDB= MyDBHelper(applicationContext)
        // val myDB = helperDB.readableDatabase
 
+        binding.tvForgotpassword.setOnClickListener {
+            val intent=Intent(this,ForgotPassword::class.java)
+            startActivity(intent)
+        }
+
          binding.bLogin.setOnClickListener {
              val getUsername: String = binding.etUsernameLogin.text.toString()
              val getPassword: String = binding.etPasswordLogin.text.toString()
              if (getUsername == "" || getPassword == "") {
-                 binding.tvStatusLogin.text = "Fields are empty"
+                 binding.tvStatusLogin.text = "Fields Are Empty"
              } else {
                val verify= helperDB.verifyUsernamePassword(getUsername,getPassword)
                  if (verify) {
@@ -37,6 +38,8 @@ class LoginPage : AppCompatActivity() {
                      startActivity(intent)
                  } else {
                      binding.tvStatusLogin.text = "username or password is incorrect"
+                     binding.etPasswordLogin.setText("")
+                     binding.etUsernameLogin.requestFocus()
                  }
              }
          }
@@ -44,6 +47,7 @@ class LoginPage : AppCompatActivity() {
              val intent= Intent(this,RegisterPage::class.java)
              startActivity(intent)
          }
+
     }
 
 }

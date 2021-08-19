@@ -37,6 +37,24 @@ class MyDBHelper(context: Context) : SQLiteOpenHelper(context,"LOGIN_REGISTER",n
         return cursor.count>0
 
     }
+    fun checkUsernameEmail(username:String,email:String):Boolean{
+        val sqLiteDatabase=this.readableDatabase
+        val usernameEmail = listOf<String>(username, email).toTypedArray()
+        val cursor = sqLiteDatabase.rawQuery(
+            "SELECT * FROM USERS WHERE USERNAME = ? AND EMAIL = ?",
+            usernameEmail
+        )
+        return cursor.count>0
+
+    }
+    fun updatePassword(username: String, email: String, password: String):Boolean{
+        val sqLiteDatabase=this.writableDatabase
+        val contentValues=ContentValues()
+        contentValues.put("PASSWORD",password)
+        val usernameEmail= listOf<String>(username,email).toTypedArray()
+        val result=sqLiteDatabase.update("USERS",contentValues,"USERNAME= ? AND EMAIL =?",usernameEmail)
+        return result != -1
+    }
 
 
 }

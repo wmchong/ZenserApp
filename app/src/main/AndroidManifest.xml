@@ -10,8 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenserApp">
         <activity
-            android:name=".ui.sell.ListingDetails"
-            android:parentActivityName=".ui.sell.SellFragment"
+            android:name=".ResetPassword"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPassword"
             android:exported="true" />
         <activity
             android:name=".single_listing1"
@@ -22,15 +24,12 @@
         <activity
             android:name=".ui.chat.ChatPage"
             android:exported="true" />
-
         <activity
             android:name=".LoginPage"
             android:exported="true" />
-
         <activity
             android:name=".RegisterPage"
             android:exported="true" />
-
         <activity
             android:name=".SplashScreen"
             android:exported="true"

@@ -10,7 +10,7 @@ class DealsPageHome : AppCompatActivity() {
         setContentView(R.layout.activity_deals_page)
         //action bar
         val actionbar = supportActionBar
-        actionbar!!.title = "Computer And Tech"
+        actionbar!!.title = "Deals"
         //back button
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
