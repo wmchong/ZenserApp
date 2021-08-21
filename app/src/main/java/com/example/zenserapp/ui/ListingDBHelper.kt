@@ -3,6 +3,7 @@ package com.example.zenserapp.ui
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
+import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -31,15 +32,6 @@ class ListingDBHelper(context: Context): SQLiteOpenHelper(context, "LISTINGDETAI
                 + "FOREIGN KEY (" + USERID + ") REFERENCES USERS (USERID)"
                 + ")")
         db?.execSQL(createTblListing)
-
-        //examples only, just for check
-        var listing1 = ListingModel(title = "iphone 15X", price = 1390.99, condition = "Brand New",
-            description = "Queue for iphone 15x 512GB", dealmethod = "Meet-Up", category = "Computers & Tech", userid = 0)
-        var listing2 = ListingModel(title = "Nike Dunk low retro sneakers", price = 90.00, condition = "Like New",
-            description = "42 Sizes. worn 2-3 times only. Pm for more details", dealmethod = "Delivery", category = "Men's Fashion", userid = 1)
-        db?.execSQL(insert(listing1).toString())
-        db?.execSQL(insert(listing2).toString())
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -95,17 +87,11 @@ class ListingDBHelper(context: Context): SQLiteOpenHelper(context, "LISTINGDETAI
                 title = cursor.getString(cursor.getColumnIndex("title"))
                 Log.e("cursor title","$title")
                 price = cursor.getDouble(cursor.getColumnIndex("price"))
-                Log.e("cursor porice","$price")
                 condition = cursor.getString(cursor.getColumnIndex("condition"))
-                Log.e("cursor condition","$condition")
                 description = cursor.getString(cursor.getColumnIndex("description"))
-                Log.e("cursor description","$description")
                 dealmethod = cursor.getString(cursor.getColumnIndex("dealmethod"))
-                Log.e("cursor dealMethod","$dealmethod")
                 category = cursor.getString(cursor.getColumnIndex("category"))
-                Log.e("cursor category","$category")
                 userid = cursor.getInt(cursor.getColumnIndex("userid"))
-                Log.e("cursor userid","$userid")
 
                 val listing = ListingModel(title = title, price = price,
                                         condition = condition, description = description,
@@ -115,5 +101,15 @@ class ListingDBHelper(context: Context): SQLiteOpenHelper(context, "LISTINGDETAI
             }while(cursor.moveToNext())
         }
         return listingList
+    }
+
+    //clean the database
+    fun deleteAllRows(){
+        val sqLiteDatabase=this.writableDatabase
+        Log.e("start deleting...","deleting table")
+        sqLiteDatabase.delete("tbl_listingdetails", null, null)
+        sqLiteDatabase.execSQL("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME = '$TBL_LISTINGDETAILS' ")
+        Log.e("finish deleting...","complete delete")
+        sqLiteDatabase.close()
     }
 }

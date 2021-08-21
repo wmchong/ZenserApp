@@ -79,6 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/listingImage" />
 
         <TextView
+            android:id="@+id/tvListingPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -89,6 +90,7 @@
             app:drawableStartCompat="@drawable/ic_heart_white" />
 
         <TextView
+            android:id="@+id/tvListingCondition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -100,6 +102,7 @@
             app:drawableStartCompat="@drawable/ic_baseline_quality_icon_24dp" />
 
         <TextView
+            android:id="@+id/tvListingDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"

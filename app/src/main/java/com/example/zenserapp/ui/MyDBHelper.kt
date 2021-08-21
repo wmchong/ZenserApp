@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 class MyDBHelper(context: Context) : SQLiteOpenHelper(context,"LOGIN_REGISTER",null,1) {
 
@@ -56,5 +57,14 @@ class MyDBHelper(context: Context) : SQLiteOpenHelper(context,"LOGIN_REGISTER",n
         return result != -1
     }
 
-
+    fun findUserName(userid:Int):String{
+        val sqLiteDatabase=this.readableDatabase
+        val cursor = sqLiteDatabase.rawQuery("SELECT USERNAME FROM USERS WHERE USERID = $userid",null)
+        Log.e("user name","$cursor")
+        if(cursor.moveToFirst()){
+            return cursor.getString(cursor.getColumnIndex("USERNAME"))
+        }else {
+            return "No user name"
+        }
+    }
 }

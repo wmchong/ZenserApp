@@ -26,6 +26,19 @@ class single_listing1 : AppCompatActivity() {
         //back button
         actionbar.setDisplayHomeAsUpEnabled(true)
 
+        val title = intent?.getStringExtra("TITLE")
+        binding.tvListingTitle.text = title
+        val price = "S$ "+intent?.getStringExtra("PRICE")
+        binding.tvListingPrice.text = price
+        val condition = intent?.getStringExtra("CONDITION")
+        binding.tvListingCondition.text = condition
+        val description = intent?.getStringExtra("DESCRIPTION")
+        binding.tvListingDescription.text = description
+        val buyerName = intent?.getStringExtra("BUYERNAME")
+        binding.tvSellerName.text = buyerName
+
+
+
         val sellerName = binding.tvSellerName.text
         binding.btnChat.setOnClickListener {
             val intent = Intent(this, ChatPage::class.java)

@@ -16,13 +16,14 @@
         <entry key="app/src/main/res/drawable/message_left_side.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/message_right_side.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/red_button_background.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/drawable/white_button_background.xml" value="0.228125" />
         <entry key="app/src/main/res/layout/activity_chat_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_computer_and_tech_home.xml" value="0.15715579710144928" />
         <entry key="app/src/main/res/layout/activity_deals_page.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_education_home.xml" value="0.14583333333333334" />
-        <entry key="app/src/main/res/layout/activity_listing1.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_listing1.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_single_listing1.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_single_listing1.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_voucher_home.xml" value="0.15715579710144928" />
         <entry key="app/src/main/res/layout/example_item.xml" value="0.14583333333333334" />
@@ -32,6 +33,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.15715579710144928" />
+        <entry key="app/src/main/res/layout/make_offer_dialog.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/message_left.xml" value="0.25" />
         <entry key="app/src/main/res/layout/message_right.xml" value="0.25" />
         <entry key="app/src/main/res/layout/row_results.xml" value="0.14583333333333334" />
