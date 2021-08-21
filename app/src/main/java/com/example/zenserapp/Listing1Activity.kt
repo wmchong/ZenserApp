@@ -18,6 +18,7 @@ class Listing1Activity : AppCompatActivity() {
         binding = ActivityListing1Binding.inflate(layoutInflater)
         setContentView(binding.root)
         //datebase
+        //unUseful command
         dbHelper = ListingDBHelper(this)
 
         val keyWord = intent?.getStringExtra("SearchingKeyWord")
