@@ -28,8 +28,42 @@
         <entry key="app/src/main/res/layout/activity_voucher_home.xml" value="0.15715579710144928" />
         <entry key="app/src/main/res/layout/example_item.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable-v24/searching_bar_layout.xml" value="0.25092592592592594" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/background_edit_text.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/background_home.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/backgroung_login.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/c_background.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/d_background.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/sample_op.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/search_background.xml" value="0.25092592592592594" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/drawable/username_icon.xml" value="0.25092592592592594" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_chat_page.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_login_check.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_login_page.xml" value="0.264" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_register_page.xml" value="0.264" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_services_home.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/content_login_check.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_first.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.10190217391304347" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_second.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/fragment_sell.xml" value="0.10190217391304347" />
+        <entry key="..\:/Users/rishi/Desktop/ZenserApp/app/src/main/res/layout/item_layout.xml" value="0.10190217391304347" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/drawable/bg_rounded.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/drawable/btn_rounded.xml" value="0.3828125" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_computer_and_tech_home.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_help_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_listing1.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_setting_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_first.xml" value="0.2015625" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_second.xml" value="0.2015625" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_third.xml" value="0.2015625" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/menu/chat_menu.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
         <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.4231274638633377" />
-        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.15715579710144928" />
@@ -38,7 +72,6 @@
         <entry key="app/src/main/res/layout/message_right.xml" value="0.25" />
         <entry key="app/src/main/res/layout/row_results.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2453125" />
-        <entry key="app/src/main/res/menu/chat_menu.xml" value="0.2994791666666667" />
       </map>
     </option>
   </component>

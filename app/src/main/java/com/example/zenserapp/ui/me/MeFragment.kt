@@ -1,5 +1,6 @@
 package com.example.zenserapp.ui.me
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentMeBinding
-import android.util.Log
 import com.example.zenserapp.LoginPage
+import com.example.zenserapp.SettingPage
 import com.google.android.material.tabs.TabLayoutMediator
+import android.content.DialogInterface
+
+
+
 
 class MeFragment : Fragment(R.layout.fragment_me) {
 
@@ -35,17 +40,6 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         //set username
         binding.usernameTV.text=username
 
-        binding.searchIB.setOnClickListener {
-            //send text to backend
-            //sql here
-            val text = binding.searchET.text.toString()
-            Log.i("look here",text)
-        }
-        binding.logoutIB.setOnClickListener{
-            val intent = Intent(context,LoginPage::class.java)
-            startActivity(intent)
-        }
-
         val tabLayout = binding.tabLayout
         val viewPager2 = binding.viewPager2
         val adapter = ViewPagerAdapter(childFragmentManager, lifecycle)
@@ -65,6 +59,31 @@ class MeFragment : Fragment(R.layout.fragment_me) {
             }
         }.attach()
 
+        binding.settingIB.setOnClickListener {
+            val intent = Intent(context, SettingPage::class.java)
+            context?.startActivity(intent)
+        }
+
+        binding.logoutIB.setOnClickListener {
+            showAlertDialog()
+        }
+    }
+
+    fun showAlertDialog() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(activity)
+        builder.setTitle("Logout")
+        builder.setMessage("Are you sure you want to log out of this account?")
+        builder.setPositiveButton("Logout",
+            DialogInterface.OnClickListener { dialog, id ->
+                val intent = Intent(context,LoginPage::class.java)
+                startActivity(intent)
+            })
+        builder.setNegativeButton("Cancel",
+            DialogInterface.OnClickListener { dialog, id ->
+                dialog.dismiss()
+            })
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     //prevent memory leaks

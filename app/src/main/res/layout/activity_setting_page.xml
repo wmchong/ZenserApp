@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
+
+    <View
+        android:id="@+id/editprofileView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editprofileTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+        android:layout_marginBottom="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/dark_grey"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"
+
+        android:text="Edit profile"
+        android:textColor="@color/white"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/editprofileView"
+        app:layout_constraintTop_toTopOf="@+id/editprofileView" />
+
+    <TextView
+        android:id="@+id/usernameTV"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+
+        android:layout_marginBottom="@dimen/margin_size"
+        android:text="Username"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/editprofileView"
+        app:layout_constraintTop_toBottomOf="@+id/editprofileTV" />
+
+    <TextView
+        android:id="@+id/username2TV"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="64dp"
+
+        android:background="@color/transparent"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"
+
+        android:text="something"
+
+        app:layout_constraintEnd_toEndOf="@+id/editprofileView"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toEndOf="@+id/usernameTV"
+        app:layout_constraintTop_toTopOf="@id/editprofileView" />
+
+    <TextView
+        android:id="@+id/fullnameTV"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+
+        android:layout_marginBottom="@dimen/margin_size"
+        android:text="Full Name"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/editprofileView"
+        app:layout_constraintTop_toBottomOf="@+id/usernameTV" />
+
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+
+        android:layout_marginBottom="@dimen/margin_size"
+        android:text="Email"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/editprofileView"
+        app:layout_constraintTop_toBottomOf="@+id/fullnameTV" />
+
+    <TextView
+        android:id="@+id/mobileTV"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+
+        android:layout_marginBottom="@dimen/margin_size"
+        android:text="Mobile"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/editprofileView"
+        app:layout_constraintTop_toBottomOf="@+id/emailTV" />
+
+    <TextView
+        android:id="@+id/addressTV"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+
+        android:layout_marginBottom="@dimen/margin_size"
+        android:text="Address"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/editprofileView"
+        app:layout_constraintTop_toBottomOf="@+id/mobileTV" />
+
+    <View
+        android:id="@+id/appsettingView"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editprofileView" />
+
+    <TextView
+        android:id="@+id/appsettingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+        android:layout_marginBottom="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/dark_grey"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"
+
+        android:text="App Settings"
+        android:textColor="@color/white"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/appsettingView"
+        app:layout_constraintTop_toTopOf="@+id/appsettingView" />
+
+    <View
+        android:id="@+id/supportView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appsettingView" />
+
+    <TextView
+        android:id="@+id/supportTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+        android:layout_marginBottom="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/dark_grey"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"
+
+        android:text="Support"
+        android:textColor="@color/white"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/supportView"
+        app:layout_constraintTop_toTopOf="@+id/supportView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/helpBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/white"
+
+        android:text="Help Centre"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/supportView"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/supportView"
+        app:layout_constraintTop_toBottomOf="@+id/appsettingView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deactivateBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/red"
+        android:minWidth="100dp"
+        android:onClick="showAlertDialog"
+        android:text="Deactivate Account"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/supportView"
+
+        app:layout_constraintEnd_toEndOf="@+id/supportView"
+        app:layout_constraintStart_toStartOf="@+id/supportView"
+        app:layout_constraintTop_toBottomOf="@+id/helpBtn"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:id="@+id/appearanceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_size"
+        android:layout_marginTop="@dimen/margin_size"
+
+        android:layout_marginBottom="@dimen/margin_size"
+        android:text="Appearance"
+        android:textSize="@dimen/label_size"
+
+        app:layout_constraintStart_toStartOf="@+id/appsettingView"
+        app:layout_constraintTop_toBottomOf="@+id/appsettingTV" />
+
+    <ToggleButton
+        android:id="@+id/appearanceTB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Light"
+        android:textOn="Dark"
+        app:layout_constraintBottom_toBottomOf="@+id/appsettingView"
+        app:layout_constraintEnd_toEndOf="@+id/appsettingView"
+        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintStart_toEndOf="@+id/appsettingTV"
+        app:layout_constraintTop_toTopOf="@+id/appsettingView"
+        app:layout_constraintVertical_bias="0.519" />
+
+    <EditText
+        android:id="@+id/fullnameET"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="something Fish Chips"
+        app:layout_constraintEnd_toEndOf="@+id/editprofileView"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toEndOf="@+id/fullnameTV"
+        app:layout_constraintTop_toBottomOf="@id/username2TV"
+
+        android:layout_marginStart="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"/>
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="something@gmail.com"
+        app:layout_constraintEnd_toEndOf="@+id/editprofileView"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toEndOf="@+id/emailTV"
+        app:layout_constraintTop_toBottomOf="@id/fullnameET"
+
+        android:layout_marginStart="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"/>
+
+    <EditText
+        android:id="@+id/mobileET"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="8888 9999"
+        app:layout_constraintEnd_toEndOf="@+id/editprofileView"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toEndOf="@+id/mobileTV"
+        app:layout_constraintTop_toBottomOf="@id/emailET"
+
+        android:layout_marginStart="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"/>
+
+    <EditText
+        android:id="@+id/addressET"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="461 Clementi Rd, Singapore 599491"
+        app:layout_constraintEnd_toEndOf="@+id/editprofileView"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toEndOf="@+id/emailTV"
+        app:layout_constraintTop_toBottomOf="@id/mobileET"
+
+        android:layout_marginStart="@dimen/margin_size"
+
+        android:background="@drawable/bg_rounded"
+
+        android:paddingStart="@dimen/padding_size"
+        android:paddingTop="@dimen/padding_size"
+        android:paddingEnd="@dimen/padding_size"
+        android:paddingBottom="@dimen/padding_size"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
