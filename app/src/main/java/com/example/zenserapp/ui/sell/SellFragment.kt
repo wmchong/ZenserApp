@@ -23,6 +23,8 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
 
     // request code to pick image(s)
     private val PICK_IMAGES_CODE = 0
+    private var categoryList = ArrayList<Category>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,7 +63,7 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
         }
 
         // category list recyclerview
-        val categoryList = generateCategoryList()
+        categoryList = generateCategoryList() as ArrayList<Category>
         binding.categoriesRV.adapter = SellRecyclerAdapter(categoryList, this)
         binding.categoriesRV.layoutManager = LinearLayoutManager(context)
         binding.categoriesRV.setHasFixedSize(true)
@@ -107,6 +109,10 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
     }
     override fun onItemClick(position: Int) {
         val intent = Intent(context, ListingDetails::class.java)
+        val clickedItem = categoryList[position]
+        var category:String
+        category = clickedItem.text1
+        intent.putExtra("category", category)
         context?.startActivity(intent)
     }
 

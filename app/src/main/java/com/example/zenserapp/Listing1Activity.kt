@@ -1,6 +1,5 @@
 package com.example.zenserapp
 
-import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,11 +26,14 @@ class Listing1Activity : AppCompatActivity() {
         //clear all pre rows
         listingdbHelper.deleteAllRows()
         // insert example listings
-        var listing1 = ListingModel(title = "iphone 15X", price = 1390.99, condition = "Brand New",
+        var listing1 = ListingModel(
+            title = "iphone 15X", price = 1390.99, condition = "Brand New",
             description = "Queue for iphone 15x 512GB", dealmethod = "Meet-Up", category = "Computers & Tech", userid = 1)
-        var listing2 = ListingModel(title = "Nike Dunk low retro sneakers", price = 90.00, condition = "Like New",
+        var listing2 = ListingModel(
+            title = "Nike Dunk low retro sneakers", price = 90.00, condition = "Like New",
             description = "42 Sizes. worn 2-3 times only. Pm for more details", dealmethod = "Delivery", category = "Men's Fashion", userid = 2)
-        var listing3 = ListingModel(title = "Iphone 11 128GB Black", price = 300.00, condition = "Well used",
+        var listing3 = ListingModel(
+            title = "Iphone 11 128GB Black", price = 300.00, condition = "Well used",
             description = "second-handed iphone 11 128GB Black", dealmethod = "Delivery", category = "Computers & Tech", userid = 2)
         addListing(listing1)
         addListing(listing2)

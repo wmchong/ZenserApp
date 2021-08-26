@@ -3,7 +3,6 @@ package com.example.zenserapp.ui
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
-import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -93,7 +92,8 @@ class ListingDBHelper(context: Context): SQLiteOpenHelper(context, "LISTINGDETAI
                 category = cursor.getString(cursor.getColumnIndex("category"))
                 userid = cursor.getInt(cursor.getColumnIndex("userid"))
 
-                val listing = ListingModel(title = title, price = price,
+                val listing = ListingModel(
+                    title = title, price = price,
                                         condition = condition, description = description,
                                         dealmethod = dealmethod, category = category, userid = userid)
                 Log.e("cursor add to list","${listing.title}")

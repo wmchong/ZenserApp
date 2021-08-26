@@ -2,10 +2,10 @@ package com.example.zenserapp.ui
 
 import java.util.*
 
-data class ListingModel (
+data class ListingModel(
     var id: Int = getAutoId(),
     var title: String ="",
-    var price:Double = 0.00,
+    var price: Double =0.00,
     var condition: String ="",
     var description: String ="",
     var dealmethod: String ="",
