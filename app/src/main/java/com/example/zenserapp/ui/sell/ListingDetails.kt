@@ -1,9 +1,11 @@
 package com.example.zenserapp.ui.sell
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.zenserapp.R
 import android.widget.*
+import com.example.zenserapp.MainActivity
 import com.example.zenserapp.ui.ListingDBHelper
 import com.example.zenserapp.ui.ListingModel
 import com.google.android.material.chip.Chip
@@ -52,7 +54,6 @@ class ListingDetails : AppCompatActivity() {
 
         buttonOpen.setOnClickListener {
 
-            Toast.makeText(this, "Listing Created!", Toast.LENGTH_SHORT).show()
             listingConditionChip = listingConditionCG.findViewById(listingConditionCG.checkedChipId)
 
             val selectedOption: Int = listingDealMethodRG!!.checkedRadioButtonId
@@ -67,6 +68,9 @@ class ListingDetails : AppCompatActivity() {
 
             var listing = ListingModel(title = title, price = price, condition = condition, description = description, dealmethod = dealmethod, category = category, userid = 1)
             listingDB.insert(listing)
+            Toast.makeText(this, "Listing Created!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            this?.startActivity(intent)
         }
     }
 
