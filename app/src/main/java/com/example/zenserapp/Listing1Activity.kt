@@ -23,22 +23,6 @@ class Listing1Activity : AppCompatActivity() {
         listingdbHelper = ListingDBHelper(this)
         userdbHelper = MyDBHelper(this)
 
-        //clear all pre rows
-        listingdbHelper.deleteAllRows()
-        // insert example listings
-        var listing1 = ListingModel(
-            title = "iphone 15X", price = 1390.99, condition = "Brand New",
-            description = "Queue for iphone 15x 512GB", dealmethod = "Meet-Up", category = "Computers & Tech", userid = 1)
-        var listing2 = ListingModel(
-            title = "Nike Dunk low retro sneakers", price = 90.00, condition = "Like New",
-            description = "42 Sizes. worn 2-3 times only. Pm for more details", dealmethod = "Delivery", category = "Men's Fashion", userid = 2)
-        var listing3 = ListingModel(
-            title = "Iphone 11 128GB Black", price = 300.00, condition = "Well used",
-            description = "second-handed iphone 11 128GB Black", dealmethod = "Delivery", category = "Computers & Tech", userid = 2)
-        addListing(listing1)
-        addListing(listing2)
-        addListing(listing3)
-
         val keyWord = intent?.getStringExtra("SearchingKeyWord")
         binding.tvTextInSearchBox.text = keyWord
         val listingsList = getListings(keyWord)
@@ -90,76 +74,90 @@ class Listing1Activity : AppCompatActivity() {
         }
 
         binding.cvListing1.setOnClickListener {
-            val intent = Intent(this, single_listing1::class.java)
-            intent.putExtra("TITLE",listingsList[0].title)
-            intent.putExtra("PRICE",listingsList[0].price.toString())
-            intent.putExtra("CONDITION",listingsList[0].condition)
-            intent.putExtra("DESCRIPTION",listingsList[0].description)
-            intent.putExtra("DEALMETHOD",listingsList[0].dealmethod)
-            intent.putExtra("CATEGORY",listingsList[0].category)
-            val userName = userdbHelper.findUserName(listingsList[0].userid)
-            intent.putExtra("BUYERNAME",userName)
-            startActivity(intent)
+            if(listingsList.size >=1){
+                val intent = Intent(this, single_listing1::class.java)
+                intent.putExtra("TITLE",listingsList[0].title)
+                intent.putExtra("PRICE",listingsList[0].price.toString())
+                intent.putExtra("CONDITION",listingsList[0].condition)
+                intent.putExtra("DESCRIPTION",listingsList[0].description)
+                intent.putExtra("DEALMETHOD",listingsList[0].dealmethod)
+                intent.putExtra("CATEGORY",listingsList[0].category)
+                val userName = userdbHelper.findUserName(listingsList[0].userid)
+                intent.putExtra("BUYERNAME",userName)
+                startActivity(intent)
+            }
+
         }
         binding.cvListing2.setOnClickListener {
-            val intent = Intent(this, single_listing1::class.java)
-            intent.putExtra("TITLE",listingsList[1].title)
-            intent.putExtra("PRICE",listingsList[1].price.toString())
-            intent.putExtra("CONDITION",listingsList[1].condition)
-            intent.putExtra("DESCRIPTION",listingsList[1].description)
-            intent.putExtra("DEALMETHOD",listingsList[1].dealmethod)
-            intent.putExtra("CATEGORY",listingsList[1].category)
-            val userName = userdbHelper.findUserName(listingsList[1].userid)
-            intent.putExtra("BUYERNAME",userName)
-            startActivity(intent)
+            if(listingsList.size>=2){
+                val intent = Intent(this, single_listing1::class.java)
+                intent.putExtra("TITLE",listingsList[1].title)
+                intent.putExtra("PRICE",listingsList[1].price.toString())
+                intent.putExtra("CONDITION",listingsList[1].condition)
+                intent.putExtra("DESCRIPTION",listingsList[1].description)
+                intent.putExtra("DEALMETHOD",listingsList[1].dealmethod)
+                intent.putExtra("CATEGORY",listingsList[1].category)
+                val userName = userdbHelper.findUserName(listingsList[1].userid)
+                intent.putExtra("BUYERNAME",userName)
+                startActivity(intent)
+            }
+
         }
         binding.cvListing3.setOnClickListener {
-            val intent = Intent(this, single_listing1::class.java)
-            intent.putExtra("TITLE",listingsList[2].title)
-            intent.putExtra("PRICE",listingsList[2].price.toString())
-            intent.putExtra("CONDITION",listingsList[2].condition)
-            intent.putExtra("DESCRIPTION",listingsList[2].description)
-            intent.putExtra("DEALMETHOD",listingsList[2].dealmethod)
-            intent.putExtra("CATEGORY",listingsList[2].category)
-            val userName = userdbHelper.findUserName(listingsList[2].userid)
-            intent.putExtra("BUYERNAME",userName)
-            startActivity(intent)
+            if(listingsList.size>=3) {
+                val intent = Intent(this, single_listing1::class.java)
+                intent.putExtra("TITLE", listingsList[2].title)
+                intent.putExtra("PRICE", listingsList[2].price.toString())
+                intent.putExtra("CONDITION", listingsList[2].condition)
+                intent.putExtra("DESCRIPTION", listingsList[2].description)
+                intent.putExtra("DEALMETHOD", listingsList[2].dealmethod)
+                intent.putExtra("CATEGORY", listingsList[2].category)
+                val userName = userdbHelper.findUserName(listingsList[2].userid)
+                intent.putExtra("BUYERNAME", userName)
+                startActivity(intent)
+            }
         }
         binding.cvListing4.setOnClickListener {
-            val intent = Intent(this, single_listing1::class.java)
-            intent.putExtra("TITLE",listingsList[3].title)
-            intent.putExtra("PRICE",listingsList[3].price.toString())
-            intent.putExtra("CONDITION",listingsList[3].condition)
-            intent.putExtra("DESCRIPTION",listingsList[3].description)
-            intent.putExtra("DEALMETHOD",listingsList[3].dealmethod)
-            intent.putExtra("CATEGORY",listingsList[3].category)
-            val userName = userdbHelper.findUserName(listingsList[3].userid)
-            intent.putExtra("BUYERNAME",userName)
-            startActivity(intent)
+            if(listingsList.size>=4){
+                val intent = Intent(this, single_listing1::class.java)
+                intent.putExtra("TITLE",listingsList[3].title)
+                intent.putExtra("PRICE",listingsList[3].price.toString())
+                intent.putExtra("CONDITION",listingsList[3].condition)
+                intent.putExtra("DESCRIPTION",listingsList[3].description)
+                intent.putExtra("DEALMETHOD",listingsList[3].dealmethod)
+                intent.putExtra("CATEGORY",listingsList[3].category)
+                val userName = userdbHelper.findUserName(listingsList[3].userid)
+                intent.putExtra("BUYERNAME",userName)
+                startActivity(intent)
+            }
         }
         binding.cvListing5.setOnClickListener {
-            val intent = Intent(this, single_listing1::class.java)
-            intent.putExtra("TITLE",listingsList[4].title)
-            intent.putExtra("PRICE",listingsList[4].price.toString())
-            intent.putExtra("CONDITION",listingsList[4].condition)
-            intent.putExtra("DESCRIPTION",listingsList[4].description)
-            intent.putExtra("DEALMETHOD",listingsList[4].dealmethod)
-            intent.putExtra("CATEGORY",listingsList[4].category)
-            val userName = userdbHelper.findUserName(listingsList[4].userid)
-            intent.putExtra("BUYERNAME",userName)
-            startActivity(intent)
+            if(listingsList.size>=5){
+                val intent = Intent(this, single_listing1::class.java)
+                intent.putExtra("TITLE",listingsList[4].title)
+                intent.putExtra("PRICE",listingsList[4].price.toString())
+                intent.putExtra("CONDITION",listingsList[4].condition)
+                intent.putExtra("DESCRIPTION",listingsList[4].description)
+                intent.putExtra("DEALMETHOD",listingsList[4].dealmethod)
+                intent.putExtra("CATEGORY",listingsList[4].category)
+                val userName = userdbHelper.findUserName(listingsList[4].userid)
+                intent.putExtra("BUYERNAME",userName)
+                startActivity(intent)
+            }
         }
         binding.cvListing6.setOnClickListener {
-            val intent = Intent(this, single_listing1::class.java)
-            intent.putExtra("TITLE",listingsList[5].title)
-            intent.putExtra("PRICE",listingsList[5].price.toString())
-            intent.putExtra("CONDITION",listingsList[5].condition)
-            intent.putExtra("DESCRIPTION",listingsList[5].description)
-            intent.putExtra("DEALMETHOD",listingsList[5].dealmethod)
-            intent.putExtra("CATEGORY",listingsList[5].category)
-            val userName = userdbHelper.findUserName(listingsList[5].userid)
-            intent.putExtra("BUYERNAME",userName)
-            startActivity(intent)
+            if(listingsList.size>=6){
+                val intent = Intent(this, single_listing1::class.java)
+                intent.putExtra("TITLE",listingsList[5].title)
+                intent.putExtra("PRICE",listingsList[5].price.toString())
+                intent.putExtra("CONDITION",listingsList[5].condition)
+                intent.putExtra("DESCRIPTION",listingsList[5].description)
+                intent.putExtra("DEALMETHOD",listingsList[5].dealmethod)
+                intent.putExtra("CATEGORY",listingsList[5].category)
+                val userName = userdbHelper.findUserName(listingsList[5].userid)
+                intent.putExtra("BUYERNAME",userName)
+                startActivity(intent)
+            }
         }
     }
 
@@ -182,5 +180,4 @@ class Listing1Activity : AppCompatActivity() {
             Log.e("listing Failed to insert", "${lst.title}")
         }
     }
-
 }

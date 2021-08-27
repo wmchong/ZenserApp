@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.zenserapp.databinding.ActivityListing1Binding
 import com.example.zenserapp.databinding.ActivitySingleListing1Binding
@@ -38,12 +39,20 @@ class single_listing1 : AppCompatActivity() {
         binding.tvSellerName.text = buyerName
 
 
-
         val sellerName = binding.tvSellerName.text
         binding.btnChat.setOnClickListener {
             val intent = Intent(this, ChatPage::class.java)
             intent.putExtra("SELLERNAME", sellerName)
             startActivity(intent)
+        }
+
+        //add listing to wishlist
+        binding.cbHeart.setOnCheckedChangeListener { checkBox, isChecked ->
+            if(isChecked){
+                Toast.makeText(this,"Item added to Wishlist",Toast.LENGTH_SHORT).show()
+            } else{
+                Toast.makeText(this,"Item removed from Wishlist",Toast.LENGTH_SHORT).show()
+            }
         }
 
         //make an offer button click to show price dialog

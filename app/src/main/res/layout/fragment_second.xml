@@ -45,7 +45,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/listing_image_layout"
-                        app:srcCompat="@drawable/ic_heart_white"
+                        app:srcCompat="@drawable/ic_heart_outline"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -111,7 +111,7 @@
                             android:layout_height="20dp"
                             android:layout_marginStart="50dp"
                             app:layout_constraintStart_toEndOf="@+id/tvUseName"
-                            app:srcCompat="@drawable/ic_heart_white"
+                            app:srcCompat="@drawable/ic_heart_filled"
                             tools:ignore="ContentDescription" />
                     </LinearLayout>
                 </LinearLayout>
@@ -209,7 +209,7 @@
                             android:layout_height="20dp"
                             android:layout_marginStart="50dp"
                             app:layout_constraintStart_toEndOf="@+id/tvUseName"
-                            app:srcCompat="@drawable/ic_heart_white"
+                            app:srcCompat="@drawable/ic_heart_filled"
                             tools:ignore="ContentDescription" />
                     </LinearLayout>
                 </LinearLayout>

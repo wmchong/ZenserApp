@@ -140,7 +140,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_heart_white"
+                                app:srcCompat="@drawable/ic_heart_outline"
                                 tools:ignore="ContentDescription" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,7 +249,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_heart_white"
+                                app:srcCompat="@drawable/ic_heart_outline"
                                 tools:ignore="ContentDescription" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
@@ -355,7 +355,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_heart_white"
+                                app:srcCompat="@drawable/ic_heart_outline"
                                 tools:ignore="ContentDescription" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -461,7 +461,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_heart_white"
+                                app:srcCompat="@drawable/ic_heart_outline"
                                 tools:ignore="ContentDescription" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -567,7 +567,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_heart_white"
+                                app:srcCompat="@drawable/ic_heart_outline"
                                 tools:ignore="ContentDescription" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -673,7 +673,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_heart_white"
+                                app:srcCompat="@drawable/ic_heart_outline"
                                 tools:ignore="ContentDescription" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>

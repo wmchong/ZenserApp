@@ -31,6 +31,20 @@ class ListingDBHelper(context: Context): SQLiteOpenHelper(context, "LISTINGDETAI
                 + "FOREIGN KEY (" + USERID + ") REFERENCES USERS (USERID)"
                 + ")")
         db?.execSQL(createTblListing)
+
+        //some examples
+        var listing1 = ListingModel(
+            title = "iphone 15X", price = 1390.99, condition = "Brand New",
+            description = "Queue for iphone 15x 512GB", dealmethod = "Meet-Up", category = "Computers & Tech", userid = 1)
+        var listing2 = ListingModel(
+            title = "Nike Dunk low retro sneakers", price = 90.00, condition = "Like New",
+            description = "42 Sizes. worn 2-3 times only. Pm for more details", dealmethod = "Delivery", category = "Men's Fashion", userid = 2)
+        var listing3 = ListingModel(
+            title = "Iphone 11 128GB Black", price = 300.00, condition = "Well used",
+            description = "second-handed iphone 11 128GB Black", dealmethod = "Delivery", category = "Computers & Tech", userid = 2)
+        val status1 = insert(listing1)
+        val status2 = insert(listing2)
+        val status3 = insert(listing3)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {

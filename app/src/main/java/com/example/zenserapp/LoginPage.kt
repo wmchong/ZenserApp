@@ -36,7 +36,6 @@ class LoginPage : AppCompatActivity() {
                  if (verify) {
                      val intent = Intent(this, MainActivity::class.java)
                      intent.putExtra("USERNAME",getUsername)
-                     intent.putExtra("USERID",getUsername)
                      startActivity(intent)
                  } else {
                      binding.tvStatusLogin.text = "username or password is incorrect"

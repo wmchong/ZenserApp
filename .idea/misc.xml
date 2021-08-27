@@ -3,16 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/activity_listing1.xml" value="0.26222826086956524" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/activity_men_fashion_home.xml" value="0.2758152173913043" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/category_item.xml" value="0.18085106382978725" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/fragment_sell.xml" value="0.2758152173913043" />
-        <entry key="..\:/Users/JOWELL/Desktop/ZenserApp/app/src/main/res/layout/listing_details.xml" value="0.26222826086956524" />
         <entry key="app/src/main/res/drawable-v24/ic_heart_white.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable-v24/ic_user1.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/background_edit_text.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/background_home.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/backgroung_login.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/drawable/ic_heart_filled.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/drawable/ic_heart_outline.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_home_24dp.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/ic_sell_24dp.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/ic_send_24.xml" value="0.2682291666666667" />
@@ -21,13 +18,15 @@
         <entry key="app/src/main/res/drawable/message_left_side.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/message_right_side.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/red_button_background.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/drawable/selector_wishlist_item.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/drawable/white_button_background.xml" value="0.228125" />
         <entry key="app/src/main/res/layout/activity_chat_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_computer_and_tech_home.xml" value="0.15715579710144928" />
         <entry key="app/src/main/res/layout/activity_deals_page.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_education_home.xml" value="0.14583333333333334" />
-        <entry key="app/src/main/res/layout/activity_listing1.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_listing1.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_single_listing1.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_single_listing1.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_voucher_home.xml" value="0.15715579710144928" />
         <entry key="app/src/main/res/layout/example_item.xml" value="0.14583333333333334" />
@@ -36,7 +35,10 @@
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/fragment_third.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.15715579710144928" />
+        <entry key="app/src/main/res/layout/listing_details.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/make_offer_dialog.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/message_left.xml" value="0.25" />
         <entry key="app/src/main/res/layout/message_right.xml" value="0.25" />
         <entry key="app/src/main/res/layout/row_results.xml" value="0.14583333333333334" />
