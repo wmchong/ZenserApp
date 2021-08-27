@@ -9,9 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentMeBinding
+import android.util.Log
+import android.widget.Toast
 import com.example.zenserapp.LoginPage
 import com.example.zenserapp.SettingPage
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 import android.content.DialogInterface
 
 
@@ -21,6 +26,9 @@ class MeFragment : Fragment(R.layout.fragment_me) {
 
     private var _binding: FragmentMeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var db:DatabaseReference
+    private lateinit var uid:String
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,9 +44,17 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         super.onViewCreated(view, savedInstanceState)
 
         //get username from login activity
-        val username= activity?.intent?.getStringExtra("USERNAME")
+    //    val username= activity?.intent?.getStringExtra("USERNAME")
         //set username
-        binding.usernameTV.text=username
+      //  binding.usernameTV.text=username
+        db=FirebaseDatabase.getInstance().getReference("users")
+        uid=FirebaseAuth.getInstance().currentUser?.uid.toString()
+        if(uid.isNotEmpty()){
+            getUserData()
+        }
+        else{
+            Log.d("Chat","Failed")
+        }
 
         val tabLayout = binding.tabLayout
         val viewPager2 = binding.viewPager2
@@ -90,6 +106,22 @@ class MeFragment : Fragment(R.layout.fragment_me) {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+
+     fun getUserData(){
+        db.child(uid).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user_name=snapshot.child("username").getValue(String::class.java).toString()
+                Log.d("meFrag",user_name)
+                binding.usernameTV.text=user_name
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("Database error",error.toString())
+            }
+
+        })
     }
 
 }

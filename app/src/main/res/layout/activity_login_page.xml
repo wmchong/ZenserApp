@@ -57,9 +57,9 @@
                 android:id="@+id/et_username_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/iv_username_icon"
+                android:layout_toEndOf="@+id/iv_email_icon"
                 android:background="@android:color/transparent"
-                android:hint="username"
+                android:hint="E-mail"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="15dp"
@@ -68,12 +68,12 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@+id/iv_username_icon"
+                android:id="@+id/iv_email_icon"
                 android:layout_width="16dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="17dp"
-                android:src="@drawable/username_icon" />
+                android:src="@drawable/email_icon" />
 
         </RelativeLayout>
 

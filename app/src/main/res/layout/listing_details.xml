@@ -169,7 +169,7 @@
         app:layout_constraintTop_toBottomOf="@+id/listingDescET" />
 
     <RadioGroup
-        android:id="@+id/listingDealRG"
+        android:id="@+id/rg_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -197,14 +197,15 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/submitListingDetailsBtn"
+        android:id="@+id/b_insert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:text="List Item"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        android:backgroundTint="@color/black"
+        android:text="INSERT"
+        app:layout_constraintBottom_toBottomOf="@+id/rg_radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

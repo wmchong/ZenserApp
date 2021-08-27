@@ -16,7 +16,7 @@
             android:name=".SettingPage"
             android:exported="true" />
         <activity
-            android:name=".ResetPassword"
+            android:name=".ui.categories.ProductDetails"
             android:exported="true" />
         <activity
             android:name=".ForgotPassword"
@@ -34,14 +34,13 @@
         <activity
             android:name=".LoginPage"
             android:exported="true" />
-
         <activity
             android:name=".RegisterPage"
             android:exported="true" />
         <activity
             android:name=".ui.sell.ListingDetails"
-            android:parentActivityName=".ui.sell.SellFragment"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".ui.sell.SellFragment" />
         <activity
             android:name=".SplashScreen"
             android:exported="true"

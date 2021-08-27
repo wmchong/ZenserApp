@@ -2,8 +2,11 @@ package com.example.zenserapp.ui.sell
 
 import android.app.Activity
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,17 +17,24 @@ import com.example.zenserapp.databinding.FragmentSellBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenserapp.MainActivity
 import com.example.zenserapp.R
+import com.example.zenserapp.ui.chat.ChatPage
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
     private var _binding: FragmentSellBinding? = null
     private val binding get() = _binding!!
     private var images: ArrayList<Uri?>? = null
     private var position = 0
+    private lateinit var list:ArrayList<Category>
+
+    var selectedPhotoUri:Uri?=null
 
     // request code to pick image(s)
     private val PICK_IMAGES_CODE = 0
-    private var categoryList = ArrayList<Category>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,7 +73,7 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
         }
 
         // category list recyclerview
-        categoryList = generateCategoryList() as ArrayList<Category>
+        val categoryList = generateCategoryList()
         binding.categoriesRV.adapter = SellRecyclerAdapter(categoryList, this)
         binding.categoriesRV.layoutManager = LinearLayoutManager(context)
         binding.categoriesRV.setHasFixedSize(true)
@@ -100,24 +110,33 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
                 else {
                     // picked single image
                     val imageUri = data.data
+                    selectedPhotoUri=imageUri
                     // set image to image switcher
                     binding.saveImageIS.setImageURI(imageUri)
                     position == 0
+
                 }
             }
         }
     }
     override fun onItemClick(position: Int) {
         val intent = Intent(context, ListingDetails::class.java)
-        val clickedItem = categoryList[position]
-        var category:String
-        category = clickedItem.text1
-        intent.putExtra("category", category)
-        context?.startActivity(intent)
+        Log.d("SELL PAGE",list[position].text1)
+        Log.d("SELL PAGE",selectedPhotoUri.toString())
+        intent.putExtra("Category",list[position].text1)
+        intent.putExtra("PhotoUrl",selectedPhotoUri.toString())
+        if(selectedPhotoUri==null){
+            Toast.makeText(context,"Please select an image of the product before proceeding",Toast.LENGTH_SHORT).show()
+        }
+        else{
+            context?.startActivity(intent)
+        }
+
+
     }
 
     private fun generateCategoryList(): List<Category> {
-        val list = ArrayList<Category>()
+         list = ArrayList<Category>()
         val item1 = Category(R.drawable.computer, "Computers & Tech")
         val item2 = Category(R.drawable.education, "Learning & Enrichment")
         val item3 = Category(R.drawable.men_fashion, "Men's Fashion")
@@ -133,6 +152,7 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
         return list
 
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

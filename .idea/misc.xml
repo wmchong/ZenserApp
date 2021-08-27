@@ -3,6 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/drawable/c_background.xml" value="0.1685185185185185" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/drawable/custom_fav.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/drawable/ic_baseline_favorite_selected_24.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_computer_and_tech_home.xml" value="0.24592391304347827" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_deals_page.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_education_home.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_listing1.xml" value="0.23867753623188406" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_main2.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_men_fashion_home.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_product_details.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_register_page.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_services_home.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_single_listing1.xml" value="0.23867753623188406" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_voucher_home.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_women_fashion_home.xml" value="0.24682971014492755" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_chat.xml" value="0.13385416666666666" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_home.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_second.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_sell.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_third.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/item_layout.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/listing.xml" value="0.1" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/listing_details.xml" value="0.12" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/make_offer_dialog.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/product.xml" value="0.26031746031746034" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/wishlist.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/ic_heart_white.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable-v24/ic_user1.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/background_edit_text.xml" value="0.2682291666666667" />
