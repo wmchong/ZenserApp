@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "714661470031",
-    "project_id": "zenser-75569",
-    "storage_bucket": "zenser-75569.appspot.com"
+    "project_number": "17437412121",
+    "project_id": "zenser-fe31d",
+    "storage_bucket": "zenser-fe31d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:714661470031:android:487a0115fe403304d0af3a",
+        "mobilesdk_app_id": "1:17437412121:android:87990b0cd99a4105951388",
         "android_client_info": {
           "package_name": "com.example.zenserapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "714661470031-mfo6cf498hm8vuguskcm919dvc6f2f3m.apps.googleusercontent.com",
+          "client_id": "17437412121-1c3tpgh2jqnepub296l5mh09aqh0q5jj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZx4b21uKCDW_e6n7A7spuCyRWXazcWgo"
+          "current_key": "AIzaSyAhcQatmLa1bI10lMS6CpW4bTSGhdhfsH8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "714661470031-mfo6cf498hm8vuguskcm919dvc6f2f3m.apps.googleusercontent.com",
+              "client_id": "17437412121-1c3tpgh2jqnepub296l5mh09aqh0q5jj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
