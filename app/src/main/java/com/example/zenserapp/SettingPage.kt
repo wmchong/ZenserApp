@@ -12,6 +12,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import android.R
+import com.google.firebase.database.FirebaseDatabase
+
+import com.google.firebase.database.DatabaseReference
+
+
+
 
 
 
@@ -20,6 +26,7 @@ class SettingPage : AppCompatActivity() {
     private lateinit var binding: ActivitySettingPageBinding
     private lateinit var db:DatabaseReference
     private lateinit var uid:String
+    val getUserid =FirebaseAuth.getInstance().uid
     /*
     val username = binding.username2TV.text
     val fullname = binding.fullnameET.text
@@ -72,6 +79,12 @@ class SettingPage : AppCompatActivity() {
 
     }
 
+    fun deleteUserData(){
+
+        val dR = FirebaseDatabase.getInstance().getReference("users").child(getUserid!!)
+        dR.removeValue()
+    }
+
     fun getUserData(){
         db.child(uid).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -121,9 +134,15 @@ class SettingPage : AppCompatActivity() {
             .setPositiveButton("Deactivate Account"){ dialog, which ->
                 val intent =Intent(this,LoginPage::class.java)
                 startActivity(intent)
+
                 showSnackbar("Account have been successfully deactivated")
+
+                //Delete user details in Authentication in Firebase
                 val user = FirebaseAuth.getInstance().getCurrentUser()
                 user!!.delete()
+
+                //Delete user details in users tree in Firebase
+                deleteUserData()
 
             }
             .show()
