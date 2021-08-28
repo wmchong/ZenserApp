@@ -23,6 +23,7 @@ class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
     var searchListAdapter: SearchListAdapter? = null;
     var keyWord:String?=""
 
+    //a command
     override fun onCreateView( inflater: LayoutInflater,
                                 container: ViewGroup?,
                                savedInstanceState: Bundle?): View? {
