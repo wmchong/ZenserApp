@@ -119,6 +119,7 @@ class ListingDetails : AppCompatActivity() {
     private fun handleSelection(imageUrl:String) {
         val cat = intent?.getStringExtra("Category")
         val productTitle = title.text.toString()
+        val searchTitle = title.text.toString().lowercase()
         val productPrice = price.text.toString()
         val productDesc = description.text.toString()
         chipGroup.checkedChipIds.forEach {
@@ -167,7 +168,24 @@ class ListingDetails : AppCompatActivity() {
             refListing.setValue(user)
                 .addOnSuccessListener {
                     Log.d("Insert Activity", "product saved to database listing")
+                }
 
+            //Dana edit
+            val refSearchListing =
+                FirebaseDatabase.getInstance().getReference("/searchListings/$productTitle")
+            val searchListing = Product(
+                uid!!,
+                user_name,
+                imageUrl,
+                productTitle,
+                productPrice,
+                productDesc,
+                chip?.text.toString(),
+                radioButton.text.toString()
+            )
+            refSearchListing.setValue(user)
+                .addOnSuccessListener {
+                    Log.d("Insert Activity", "product saved to database search listing")
                 }
 
         }

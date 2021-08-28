@@ -12,18 +12,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
 
         <ImageView
             android:id="@+id/searchingIcon"
             tools:ignore="ContentDescription"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_search_24" />
 
         <TextView
-            android:id="@+id/tvSearchingListing"
+            android:id="@+id/tvSearchResult"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="iphone 12 pro"
@@ -31,15 +32,6 @@
             android:textSize="20sp"
             android:layout_marginStart="10dp"
             android:layout_gravity="center" />
-
-        <ImageButton
-            android:id="@+id/result_forward"
-            tools:ignore="ContentDescription"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_arrow_forward_black_24dp" />
 
     </LinearLayout>
 

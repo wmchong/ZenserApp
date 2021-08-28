@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenserApp">
         <activity
+            android:name=".SearchResultPage"
+            android:exported="true" />
+        <activity
             android:name=".HelpPage"
             android:exported="true" />
         <activity
@@ -22,15 +25,8 @@
             android:name=".ForgotPassword"
             android:exported="true" />
         <activity
-            android:name=".single_listing1"
-            android:exported="true" />
-        <activity
-            android:name=".Listing1Activity"
-            android:exported="true" />
-        <activity
             android:name=".ui.chat.ChatPage"
             android:exported="true" />
-
         <activity
             android:name=".LoginPage"
             android:exported="true" />

@@ -5,81 +5,67 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.zenserapp.Listing1Activity
-import com.example.zenserapp.R
+import com.example.zenserapp.SearchResultPage
 import com.example.zenserapp.databinding.FragmentExploreBinding
-import com.example.zenserapp.ui.home.HomeFragment
+import com.google.firebase.database.*
 
-class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
+class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
     private var _binding: FragmentExploreBinding? = null
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
-
     private lateinit var exploreViewModel: ExploreViewModel
 
-    // possible results when searching iphone
-    val iphoneSearch = arrayOf(
-        ListingsModal(listingName = "iphone"),
-        ListingsModal(listingName = "iphonexs"),
-        ListingsModal(listingName = "iphone xs case"),
-        ListingsModal(listingName = "iphone cover"),
-        ListingsModal(listingName = "iphone 12"),
-        ListingsModal(listingName = "iphone 12 mini"),
-        ListingsModal(listingName = "iphone 11"),
-        ListingsModal(listingName = "iphone 12 pro"),
-        ListingsModal(listingName = "iphone 11 pro"),
-        ListingsModal(listingName = "iphone 11 pro max"),
-        ListingsModal(listingName = "iphone case"),
-        ListingsModal(listingName = "iphone 13 queue"),
-        ListingsModal(listingName = "sneaker")
-    )
-
-    val iphoneSearchList = ArrayList<ListingsModal>()
-    var listingsAdapter: ListingsAdapter? = null;
+    private lateinit var dbref:DatabaseReference
+    val searchList = ArrayList<SearchModel>()
+    var searchListAdapter: SearchListAdapter? = null;
+    var keyWord:String?=""
 
     override fun onCreateView( inflater: LayoutInflater,
                                 container: ViewGroup?,
                                savedInstanceState: Bundle?): View? {
+
         exploreViewModel = ViewModelProvider(this).get(ExploreViewModel::class.java)
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
 
-        for(items in iphoneSearch){
-            iphoneSearchList.add(items)
-        }
+        dbref=FirebaseDatabase.getInstance().getReference("/searchListings")
+        getData()
 
-        listingsAdapter = ListingsAdapter(this)
-        listingsAdapter!!.setData(iphoneSearchList)
-
-        binding.rvSearchingResults.layoutManager = LinearLayoutManager(context)
-        binding.rvSearchingResults.setHasFixedSize(true)
-        binding.rvSearchingResults.adapter = listingsAdapter
+        searchListAdapter = SearchListAdapter(this)
+        searchListAdapter!!.setData(searchList)
+        binding.rvSearchView.layoutManager = LinearLayoutManager(context)
+        binding.rvSearchView.setHasFixedSize(true)
+        binding.rvSearchView.adapter = searchListAdapter
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.expSearchingField.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.searchField.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                binding.expSearchingField.clearFocus()
-                val speItemModal = query?.let { ListingsModal(listingName = it) }
-                if(iphoneSearchList.contains(speItemModal)){
-                    listingsAdapter!!.filter.filter(query)
+                binding.rvSearchView.clearFocus()
+                val speItemModal = query?.let { SearchModel(title= it) }
+                keyWord = query
+                if(searchList.contains(speItemModal)){
+                    searchListAdapter!!.filter.filter(query)
                 }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                listingsAdapter!!.filter.filter(newText)
+                searchListAdapter!!.filter.filter(newText)
+                keyWord = newText
                 return false
             }
         })
 
-        binding.btnBack.setOnClickListener {
+        binding.btnSearch.setOnClickListener {
+            Log.e("Search keyword", "$keyWord")
+            val intent = Intent(context, SearchResultPage::class.java)
+            intent.putExtra("KeyWord",keyWord)
+            startActivity(intent)
         }
     }
 
@@ -88,11 +74,34 @@ class ExploreFragment : Fragment(), ListingsAdapter.ClickListener {
         _binding = null
     }
 
-    override fun ClickedItem(listingsModal: ListingsModal) {
-        Log.e("TAG", listingsModal.listingName)
-        val keyWord = listingsModal.listingName
-        val intent = Intent(context, Listing1Activity::class.java)
-        intent.putExtra("SearchingKeyWord",keyWord)
+    override fun ClickedItem(searchModel: SearchModel) {
+        Log.e("TAG", "$searchModel.title")
+        val keyWord = searchModel.title
+        val intent = Intent(context, SearchResultPage::class.java)
+        intent.putExtra("KeyWord",keyWord)
         startActivity(intent)
+    }
+
+    //get title from firebase
+    private fun getData(){
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(nameSnapshot in snapshot.children){
+                        Log.e("snapshot children", "$nameSnapshot")
+                        val title= nameSnapshot.child("title").getValue(String::class.java)!!.lowercase()
+                        Log.e("snapshot children title", "$title")
+                        val searchmodel = SearchModel(title = "$title")
+                        searchList.add(searchmodel)
+                        Log.e("search list size", "${searchList.size}")
+                        Log.e("search list","$searchList")
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("Error message",error.message)
+            }
+        })
+
     }
 }
