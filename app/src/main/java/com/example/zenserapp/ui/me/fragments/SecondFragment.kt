@@ -28,21 +28,12 @@ class SecondFragment : Fragment() {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
 
-
-
-
-
         binding.rvWishList.layoutManager = GridLayoutManager(context, 2)
         binding.rvWishList.setHasFixedSize(true)
         binding.rvWishList.setItemViewCacheSize(20);
 
         productArrayList = arrayListOf<Product>()
         getUserData()
-
-
-
-
-
         return binding.root
     }
     private fun getUserData() {

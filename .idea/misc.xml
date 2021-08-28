@@ -34,6 +34,13 @@
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/make_offer_dialog.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/product.xml" value="0.26031746031746034" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/wishlist.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_setting_page.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_first.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_second.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_third.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/item_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/listing_details.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_heart_white.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable-v24/ic_user1.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/drawable/background_edit_text.xml" value="0.2682291666666667" />
@@ -83,7 +90,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

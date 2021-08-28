@@ -39,7 +39,7 @@
 
     <TextView
         android:id="@+id/usernameTV"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
@@ -75,7 +75,7 @@
 
     <TextView
         android:id="@+id/fullnameTV"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
@@ -89,7 +89,7 @@
 
     <TextView
         android:id="@+id/emailTV"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
@@ -103,7 +103,7 @@
 
     <TextView
         android:id="@+id/mobileTV"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
@@ -117,7 +117,7 @@
 
     <TextView
         android:id="@+id/addressTV"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
@@ -246,17 +246,16 @@
         android:textOn="Dark"
         app:layout_constraintBottom_toBottomOf="@+id/appsettingView"
         app:layout_constraintEnd_toEndOf="@+id/appsettingView"
-        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintHorizontal_bias="0.912"
         app:layout_constraintStart_toEndOf="@+id/appsettingTV"
         app:layout_constraintTop_toTopOf="@+id/appsettingView"
-        app:layout_constraintVertical_bias="0.519" />
+        app:layout_constraintVertical_bias="0.661" />
 
     <EditText
         android:id="@+id/fullnameET"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
         android:ems="10"
-        android:text="something Fish Chips"
         app:layout_constraintEnd_toEndOf="@+id/editprofileView"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toEndOf="@+id/fullnameTV"
@@ -273,10 +272,9 @@
 
     <EditText
         android:id="@+id/emailET"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
         android:ems="10"
-        android:text="something@gmail.com"
         app:layout_constraintEnd_toEndOf="@+id/editprofileView"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toEndOf="@+id/emailTV"
@@ -293,10 +291,9 @@
 
     <EditText
         android:id="@+id/mobileET"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
         android:ems="10"
-        android:text="8888 9999"
         app:layout_constraintEnd_toEndOf="@+id/editprofileView"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toEndOf="@+id/mobileTV"
@@ -313,10 +310,11 @@
 
     <EditText
         android:id="@+id/addressET"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="80dp"
         android:ems="10"
-        android:text="461 Clementi Rd, Singapore 599491"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="@+id/editprofileView"
         app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toEndOf="@+id/emailTV"
@@ -330,4 +328,20 @@
         android:paddingTop="@dimen/padding_size"
         android:paddingEnd="@dimen/padding_size"
         android:paddingBottom="@dimen/padding_size"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounded"
+
+        android:backgroundTint="@color/white"
+        android:text="Save"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/editprofileView"
+        app:layout_constraintTop_toTopOf="@+id/editprofileView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

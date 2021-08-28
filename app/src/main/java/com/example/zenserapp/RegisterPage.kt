@@ -94,7 +94,9 @@ class RegisterPage : AppCompatActivity() {
         val getEmail=binding.etEmailRegister.text.toString()
         val uid =FirebaseAuth.getInstance().uid
         val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
-        val user=User(uid!!,getName,getUsername,getEmail)
+        val getMobile = ""
+        val getAddr = ""
+        val user=User(uid!!,getName,getUsername,getEmail,getMobile,getAddr)
         ref.setValue(user)
             .addOnSuccessListener {
             Log.d("RegisterActivity","User saved to database")
@@ -102,4 +104,4 @@ class RegisterPage : AppCompatActivity() {
     }
 }
 
-class User(val uid:String ,val fullname:String,val username:String,val email: String)
+class User(val uid:String ,val fullname:String,val username:String,val email: String, val mobile:String, val addr:String)
