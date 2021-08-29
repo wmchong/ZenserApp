@@ -58,7 +58,7 @@ class MyAdapter(private val context: Context, private val productList:ArrayList<
                     i = 1
                     Toast.makeText(context, currentItem.title, Toast.LENGTH_SHORT).show()
                     val ref =
-                        FirebaseDatabase.getInstance().getReference("/wishlist/${currentItem.title}")
+                        FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}")
                     val fav =Wishlist(currentItem.title,currentItem.imageUrl,currentItem.price,currentItem.username)
                     ref.setValue(fav)
                         .addOnSuccessListener {
@@ -67,7 +67,7 @@ class MyAdapter(private val context: Context, private val productList:ArrayList<
 
                 } else if (i == 1) {
                     val ref =
-                        FirebaseDatabase.getInstance().getReference("/wishlist/${currentItem.title}").removeValue()
+                        FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}").removeValue()
                     holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
                     i = 0
                 }

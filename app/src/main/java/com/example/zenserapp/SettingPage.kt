@@ -6,42 +6,26 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.example.zenserapp.databinding.ActivitySettingPageBinding
-import com.example.zenserapp.ui.categories.Product
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import android.R
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.database.FirebaseDatabase
-
 import com.google.firebase.database.DatabaseReference
-
-
-
-
-
-
 
 class SettingPage : AppCompatActivity() {
     private lateinit var binding: ActivitySettingPageBinding
     private lateinit var db:DatabaseReference
     private lateinit var uid:String
     val getUserid =FirebaseAuth.getInstance().uid
-    /*
-    val username = binding.username2TV.text
-    val fullname = binding.fullnameET.text
-    val email = bind
-    val mobile
-    val addr
-
-     */
+   // var setTheme=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding= ActivitySettingPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //setContentView(R.layout.activity_setting_page)
 
         //action bar
         val actionbar = supportActionBar
@@ -66,21 +50,41 @@ class SettingPage : AppCompatActivity() {
         binding.saveBtn.setOnClickListener{
             saveUserToFirebaseDatabase()
         }
+/*
+        if (setTheme == "1"){
+            binding.appearanceTB.setChecked(true)
+        } else {
+            binding.appearanceTB.setChecked(false)
+        }
+
+ */
 
         binding.appearanceTB.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked) {
                 //Dark
                 showSnackbar("Dark mode enabled")
+
+               // setTheme="1"
+
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                delegate.applyDayNight()
+
+                //saveUserThemeToFirebaseDatabase()
             } else {
                 //Light
                 showSnackbar("Light mode enabled")
+
+               // setTheme="0"
+
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                delegate.applyDayNight()
+
+                //saveUserThemeToFirebaseDatabase()
             }
         }
-
     }
 
     fun deleteUserData(){
-
         val dR = FirebaseDatabase.getInstance().getReference("users").child(getUserid!!)
         dR.removeValue()
     }
@@ -93,19 +97,19 @@ class SettingPage : AppCompatActivity() {
                 val email=snapshot.child("email").getValue(String::class.java).toString()
                 val mobile=snapshot.child("mobile").getValue(String::class.java).toString()
                 val address=snapshot.child("addr").getValue(String::class.java).toString()
+                val theme=snapshot.child("theme").getValue(String::class.java).toString()
                 Log.d("meFrag",user_name)
                 binding.username2TV.text=user_name
                 binding.fullnameET.setText(full_name)
                 binding.emailET.setText(email)
                 binding.mobileET.setText(mobile)
                 binding.addressET.setText(address)
-
+                //setTheme=theme
             }
 
             override fun onCancelled(error: DatabaseError) {
                 Log.d("Database error",error.toString())
             }
-
         })
     }
 
@@ -124,6 +128,32 @@ class SettingPage : AppCompatActivity() {
                 showSnackbar("New profile details saved ")
             }
     }
+/*
+    private fun saveUserThemeToFirebaseDatabase(){
+        db.child(uid).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user_name=snapshot.child("username").getValue(String::class.java).toString()
+                val full_name=snapshot.child("fullname").getValue(String::class.java).toString()
+                val email=snapshot.child("email").getValue(String::class.java).toString()
+                val mobile=snapshot.child("mobile").getValue(String::class.java).toString()
+                val address=snapshot.child("addr").getValue(String::class.java).toString()
+                val getTheme=setTheme
+
+                val uid =FirebaseAuth.getInstance().uid
+                val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
+                val user=User(uid!!,full_name,user_name,email,mobile,address,getTheme)
+                ref.setValue(user)
+                    .addOnSuccessListener {
+                    }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("Database error",error.toString())
+            }
+        })
+    }
+
+ */
 
     fun showAlertDialog(view: View) {
         MaterialAlertDialogBuilder(this)
@@ -146,7 +176,6 @@ class SettingPage : AppCompatActivity() {
 
             }
             .show()
-
     }
 
     private fun showSnackbar(msg: String) {

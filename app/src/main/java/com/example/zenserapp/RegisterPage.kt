@@ -96,6 +96,7 @@ class RegisterPage : AppCompatActivity() {
         val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
         val getMobile = ""
         val getAddr = ""
+        //val getTheme = ""
         val user=User(uid!!,getName,getUsername,getEmail,getMobile,getAddr)
         ref.setValue(user)
             .addOnSuccessListener {

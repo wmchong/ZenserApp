@@ -12,6 +12,7 @@ import com.example.zenserapp.databinding.FragmentSecondBinding
 import com.example.zenserapp.ui.categories.MyAdapter
 import com.example.zenserapp.ui.categories.MyAdapterWishlist
 import com.example.zenserapp.ui.categories.Product
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class SecondFragment : Fragment() {
@@ -19,6 +20,7 @@ class SecondFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var dbref: DatabaseReference
     private lateinit var productArrayList: ArrayList<Product>
+    val uid = FirebaseAuth.getInstance().uid
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -37,7 +39,7 @@ class SecondFragment : Fragment() {
         return binding.root
     }
     private fun getUserData() {
-        dbref = FirebaseDatabase.getInstance().getReference("/wishlist")
+        dbref = FirebaseDatabase.getInstance().getReference("/wishlist/$uid")
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {

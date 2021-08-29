@@ -19,6 +19,7 @@ class ThirdFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var dbref: DatabaseReference
     private lateinit var productArrayList: ArrayList<Product>
+    val uid = FirebaseAuth.getInstance().uid
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +39,8 @@ class ThirdFragment : Fragment() {
         return binding.root
     }
     private fun getUserData() {
-        val uid = FirebaseAuth.getInstance().uid
 
-        dbref = FirebaseDatabase.getInstance().getReference("/listing/$uid")
+        dbref = FirebaseDatabase.getInstance().getReference("/purchase/$uid")
         dbref.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
