@@ -2,6 +2,7 @@ package com.example.zenserapp.ui.chat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenserapp.R
@@ -17,9 +18,11 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_log.*
 import kotlinx.android.synthetic.main.message_left.view.*
+import kotlinx.android.synthetic.main.message_right.*
 import kotlinx.android.synthetic.main.message_right.view.*
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
 import java.sql.Timestamp
+import java.util.*
 
 class ChatLogActivity : AppCompatActivity() {
 
@@ -42,13 +45,33 @@ class ChatLogActivity : AppCompatActivity() {
         toUser = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
         supportActionBar?.title = toUser?.username
 
-        listenForMessages()
+        var offerPrice = intent?.getStringExtra("OFFERPRICE")
+        Log.d("OFFER PRICE TAGGGGGGGGG", offerPrice.toString())
+
+        var productTitle = intent?.getStringExtra("TITLE")
+        Log.d("Title", productTitle.toString())
+
+
+
+
+        if(offerPrice != null) {
+            listenForMessages()
+            Handler().postDelayed({
+                performOfferMessage(offerPrice.toString(), productTitle.toString())
+            }, 2000)
+
+        } else {
+            listenForMessages()
+            Log.d("ERORRRRR OFFER PRICE TAGGGGGGGGG", offerPrice.toString())
+        }
 
         send_button_chat_log.setOnClickListener {
             Log.d(TAG, "attempt to send message....")
             performSendMessage()
         }
     }
+
+
 
     private fun listenForMessages() {
         val fromId = FirebaseAuth.getInstance().uid
@@ -111,6 +134,36 @@ class ChatLogActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d(TAG, "saved our chat message: ${reference.key}")
                 edittext_chat_log.text.clear()
+                recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
+            }
+
+        toReference.setValue(chatMessage)
+
+        val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
+        latestMessageRef.setValue(chatMessage)
+
+        val latestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
+        latestMessageToRef.setValue(chatMessage)
+    }
+
+    private fun performOfferMessage(offerPrice: String, productTitle: String) {
+        val text = "Made an offer of $$offerPrice for $productTitle."
+        val fromId = FirebaseAuth.getInstance().uid
+        //val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
+        val toId = toUser?.uid
+
+        if (fromId == null) return
+
+        //val reference = FirebaseDatabase.getInstance().getReference("/messages").push()
+        val reference = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val toReference = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
+
+        val chatMessage = ChatMessage(reference.key!!, text, fromId, toId!!, System.currentTimeMillis() / 1000)
+
+        reference.setValue(chatMessage)
+            .addOnSuccessListener {
+                Log.d(TAG, "saved our chat message: ${reference.key}")
+                //edittext_chat_log.text.clear()
                 recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
             }
 

@@ -72,6 +72,7 @@ class MyAdapter(private val context: Context, private val productList:ArrayList<
             intent.putExtra("Description", currentItem.desc)
             intent.putExtra("Condition", currentItem.condition)
             intent.putExtra("Method", currentItem.methodDelivery)
+            intent.putExtra("UID",currentItem.uid)
             context.startActivity(intent)
 
         }

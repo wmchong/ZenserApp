@@ -49,7 +49,6 @@ class ChatFragment : Fragment() {
         adapter.setOnItemClickListener {item, view ->
             Log.d(TAG, "123")
             val intent = Intent(context, ChatLogActivity::class.java)
-
             val row = item as LatestMessageRow
             intent.putExtra(USER_KEY, row.chatPartnerUser)
 

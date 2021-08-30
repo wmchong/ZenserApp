@@ -10,8 +10,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.zenserapp.R
+import com.example.zenserapp.User
 import com.example.zenserapp.databinding.ActivityProductDetailsBinding
+import com.example.zenserapp.ui.chat.ChatLogActivity
 import com.example.zenserapp.ui.chat.ChatPage
+import com.example.zenserapp.ui.chat.NewMessageActivity.Companion.USER_KEY
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
@@ -28,7 +31,6 @@ class ProductDetails : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         val title=intent.getStringExtra("Title")
         val price=intent.getStringExtra("Price")
         val sellerName=intent.getStringExtra("Username")
@@ -36,6 +38,7 @@ class ProductDetails : AppCompatActivity() {
         val condition=intent.getStringExtra("Condition")
         val method=intent.getStringExtra("Method")
         val image=intent.getStringExtra("Image")
+        val uid=intent.getStringExtra("UID")
 
 
 
@@ -46,6 +49,8 @@ class ProductDetails : AppCompatActivity() {
         binding.tvCondition.text=condition
         binding.tvMethodDelivery.text=method
         Picasso.get().load(image).into(binding.ivImage)
+
+        val user = User(uid!!,"",sellerName!!,"","","" )
 
         //action bar
         val actionbar = supportActionBar
@@ -78,9 +83,15 @@ class ProductDetails : AppCompatActivity() {
         })
 
         //chat button
+//        binding.btnChat.setOnClickListener {
+//            val intent = Intent(this, ChatPage::class.java)
+//            intent.putExtra("SELLERNAME", sellerName)
+//            startActivity(intent)
+//        }
+
         binding.btnChat.setOnClickListener {
-            val intent = Intent(this, ChatPage::class.java)
-            intent.putExtra("SELLERNAME", sellerName)
+            val intent = Intent(this, ChatLogActivity::class.java)
+            intent.putExtra(USER_KEY, user)
             startActivity(intent)
         }
 
@@ -135,9 +146,11 @@ class ProductDetails : AppCompatActivity() {
                 //get input price from EditTexts of custom layout
                 val enterPrice = dialogView.findViewById<EditText>(R.id.etOfferPrice).text.toString()
                 Log.e("Enter Price", enterPrice)
-                val intent = Intent(this, ChatPage::class.java)
-                intent.putExtra("SELLERNAME", sellerName)
+
+                val intent = Intent(this, ChatLogActivity::class.java)
+                intent.putExtra(USER_KEY, user)
                 intent.putExtra("OFFERPRICE", enterPrice)
+                intent.putExtra("TITLE", title)
                 startActivity(intent)
             }
         }
