@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zenserapp.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 
 class MyAdapter(private val context: Context, private val productList:ArrayList<Product>) :
@@ -25,8 +25,8 @@ class MyAdapter(private val context: Context, private val productList:ArrayList<
         val itemView=LayoutInflater.from(parent.context).inflate(R.layout.product,parent,false)
         return  MyViewHolder(itemView)
     }
-    private var i=0
     private val uid = FirebaseAuth.getInstance().uid
+    private val productInWishlist: ArrayList<String> = ArrayList<String>()
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productList[position]
@@ -36,6 +36,32 @@ class MyAdapter(private val context: Context, private val productList:ArrayList<
         //  Picasso.get().load(productList[position].image).into(holder.image?.findViewById(R.id.iv_productImage))
         //  Glide.with(context).load(currentItem.imageUrl).into(holder.image)
         Picasso.get().load(currentItem.imageUrl).into(holder.image)
+
+        //to make heart icon in red if that listing is in the wishlist already
+        val titleOnThePage = holder.title.text.toString()
+        val query: Query = FirebaseDatabase.getInstance().getReference("/wishlist/$uid/")
+        query.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(productSnapshot in snapshot.children){
+                        val product=productSnapshot.getValue(Product::class.java)
+                        val title =  product!!.title
+                        if(title.equals(titleOnThePage)){
+                            //the listing is in your wishlist
+                            holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_selected_24)
+                            productInWishlist.add(title.toString())
+                            Log.d("two titles equal","$title, $titleOnThePage")
+                        }else{
+                            Log.d("two titles not equal","$title, $titleOnThePage")
+                        }
+                    }
+                    Log.d("List of listings that are in wishlist","$productInWishlist")
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("Error message",error.message)
+            }
+        })
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ProductDetails::class.java)
@@ -51,30 +77,42 @@ class MyAdapter(private val context: Context, private val productList:ArrayList<
         }
 
             holder.favourites.setOnClickListener {
-
-                if (i == 0) {
-
+                var addToWishlistState = true
+                for(lst in productInWishlist){
+                    if(lst.equals("${currentItem.title}")){
+                        //meaning user want to remove that listing from the wishlist
+                        val ref =
+                            FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}").removeValue()
+                        holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+                        productInWishlist.remove(lst)
+                        Log.d("Update the list of listings that are in wishlist: delete","$productInWishlist")
+                        addToWishlistState = false
+                        break
+                    }else{
+                    }
+                }
+                //meaning user wants to add the listing to the wishlist
+                if(addToWishlistState) {
                     holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_selected_24)
-                    i = 1
                     Toast.makeText(context, currentItem.title, Toast.LENGTH_SHORT).show()
                     val ref =
-                        FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}")
-                    val fav =Wishlist(currentItem.title,currentItem.imageUrl,currentItem.price,currentItem.username)
+                        FirebaseDatabase.getInstance()
+                            .getReference("/wishlist/$uid/${currentItem.title}")
+                    val fav = Wishlist(
+                        currentItem.title,
+                        currentItem.imageUrl,
+                        currentItem.price,
+                        currentItem.username
+                    )
                     ref.setValue(fav)
                         .addOnSuccessListener {
                             Log.d("Added to wish list", "product saved to database")
                         }
-
-                } else if (i == 1) {
-                    val ref =
-                        FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}").removeValue()
-                    holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
-                    i = 0
+                    productInWishlist.add("${currentItem.title}")
+                    Log.d("Update the list of listings that are in wishlist: delete","$productInWishlist")
                 }
             }
         }
-
-
 
     override fun getItemCount(): Int {
        return productList.size

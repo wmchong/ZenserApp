@@ -7,152 +7,160 @@
     android:background="#E0E0E0"
     tools:context=".ui.categories.ProductDetails">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#E0E0E0"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="250dp"
+            android:layout_height="245dp"
+            android:layout_gravity="center"
+            android:background="@drawable/listing_image_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_iphone_black"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Iphone 15 black 256GB"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/listingImage" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#E0E0E0"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-
-                    <ImageView
-                        android:id="@+id/iv_image"
-                        android:layout_width="250dp"
-                        android:layout_height="245dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/listing_image_layout"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_iphone_black"
-                        tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/tv_Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/btnFavourite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_baseline_favorite_24"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:text="Iphone 15 black 256GB"
-                android:textColor="#000"
-                android:textSize="30sp"
-                app:layout_constraintTop_toBottomOf="@+id/listingImage" />
-
+                android:clickable="true"/>
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="7dp"
                 android:drawablePadding="20dp"
                 android:text="S$1639"
                 android:textSize="18sp"
-                android:textColor="@color/red"
-                app:drawableStartCompat="@drawable/ic_heart_outline" />
-
-            <TextView
-                android:id="@+id/tv_condition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="7dp"
-                android:drawablePadding="20dp"
-                android:text="Brand new"
-                android:textColor="#000"
-                android:textSize="18sp"
-                app:drawableStartCompat="@drawable/ic_baseline_quality_icon_24dp" />
-
-            <TextView
-                android:id="@+id/tv_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="7dp"
-                android:drawablePadding="20dp"
-                android:lines="3"
-                android:text="Help queue for latest iPhone 15 black 256GB. PM for more details "
-                android:textColor="#000"
-                android:textSize="20sp"
-                app:drawableStartCompat="@drawable/ic_baseline_description_icon_24dp" />
-
-
-                <TextView
-                    android:id="@+id/tv_sellerName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:text="iAmBuyer1"
-                    android:drawablePadding="20dp"
-                    android:textSize="20sp"
-                    android:drawableStart="@drawable/username_icon"
-
-                    app:layout_constraintStart_toEndOf="@+id/profile_image" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="7dp"
-                android:drawablePadding="20dp"
-                android:text="Getting this:"
-                android:textColor="#000"
-                android:textSize="20sp"
-                app:drawableStartCompat="@drawable/ic_baseline_location_24dp" />
-
-            <LinearLayout
-                android:id="@+id/llMeetUp"
-                android:layout_marginTop="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_methodDelivery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:text="Meet up:"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llDelivery"
-                android:layout_marginTop="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            </LinearLayout>
+                android:textColor="@color/red" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/btnChat"
-            android:layout_width="190dp"
-            android:layout_height="82dp"
-            android:gravity="center"
-            android:textColor="#000"
+            android:id="@+id/tv_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="CHAT"
-            android:textSize="20sp"
-            android:background="@drawable/white_button_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginTop="7dp"
+            android:drawablePadding="20dp"
+            android:text="Brand new"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_baseline_quality_icon_24dp" />
 
         <TextView
-            android:id="@+id/btnMakeOffer"
-            android:layout_width="190dp"
-            android:layout_height="83dp"
-            android:gravity="center"
-            android:text="MAKE AN OFFER"
-            android:layout_marginEnd="5dp"
-            android:textColor="#FFF"
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:drawablePadding="20dp"
+            android:lines="3"
+            android:text="Help queue for latest iPhone 15 black 256GB. PM for more details "
             android:textSize="20sp"
-            android:background="@drawable/red_button_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:drawableStartCompat="@drawable/ic_baseline_description_icon_24dp" />
+
+
+        <TextView
+            android:id="@+id/tv_sellerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:text="iAmBuyer1"
+            android:drawablePadding="20dp"
+            android:textSize="20sp"
+            android:drawableStart="@drawable/username_icon"
+
+            app:layout_constraintStart_toEndOf="@+id/profile_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="7dp"
+            android:drawablePadding="20dp"
+            android:text="Getting this:"
+            android:textSize="20sp"
+            app:drawableStartCompat="@drawable/ic_baseline_location_24dp" />
+
+        <LinearLayout
+            android:id="@+id/llMeetUp"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_methodDelivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:text="Meet up:"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDelivery"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnChat"
+        android:layout_width="190dp"
+        android:layout_height="82dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_marginStart="5dp"
+        android:text="CHAT"
+        android:textSize="20sp"
+        android:background="@drawable/white_button_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/btnMakeOffer"
+        android:layout_width="190dp"
+        android:layout_height="83dp"
+        android:gravity="center"
+        android:text="MAKE AN OFFER"
+        android:layout_marginEnd="5dp"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:background="@drawable/red_button_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

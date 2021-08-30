@@ -84,6 +84,7 @@ class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
 
     //get title from firebase
     private fun getData(){
+        searchList.clear()
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){

@@ -57,7 +57,7 @@ class MyAdapterWishlist(private val context: Context, private val productList:Ar
 
         holder.favourites.setOnClickListener {
                 val ref =
-                    FirebaseDatabase.getInstance().getReference("/wishlist/${currentItem.title}").removeValue()
+                    FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}").removeValue()
                 holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
             productList.remove(currentItem)
             notifyDataSetChanged()

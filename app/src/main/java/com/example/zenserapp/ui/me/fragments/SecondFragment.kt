@@ -20,7 +20,6 @@ class SecondFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var dbref: DatabaseReference
     private lateinit var productArrayList: ArrayList<Product>
-    val uid = FirebaseAuth.getInstance().uid
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -39,6 +38,7 @@ class SecondFragment : Fragment() {
         return binding.root
     }
     private fun getUserData() {
+        val uid = FirebaseAuth.getInstance().uid
         dbref = FirebaseDatabase.getInstance().getReference("/wishlist/$uid")
         dbref.addValueEventListener(object : ValueEventListener {
 
