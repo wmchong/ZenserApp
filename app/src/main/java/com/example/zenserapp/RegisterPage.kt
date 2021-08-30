@@ -14,9 +14,11 @@ import com.example.zenserapp.databinding.ActivityRegisterPageBinding
 import com.example.zenserapp.ui.MyDBHelper
 import com.google.firebase.auth.FirebaseAuth
 import android.R.id.message
+import android.os.Parcelable
 
 import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.parcel.Parcelize
 
 
 class RegisterPage : AppCompatActivity() {
@@ -105,4 +107,7 @@ class RegisterPage : AppCompatActivity() {
     }
 }
 
-class User(val uid:String ,val fullname:String,val username:String,val email: String, val mobile:String, val addr:String)
+@Parcelize
+class User(val uid:String ,val fullname:String,val username:String,val email: String, val mobile:String, val addr:String): Parcelable {
+    constructor() : this("","","","","","")
+}

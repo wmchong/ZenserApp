@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenserApp">
         <activity
+            android:name=".ui.chat.ChatLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.chat.NewMessageActivity"
+            android:exported="true" />
+        <activity
             android:name=".SearchResultPage"
             android:exported="true" />
         <activity

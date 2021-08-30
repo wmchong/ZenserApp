@@ -20,5 +20,6 @@
     <color name="colorMessageLeft">#E6E4E4</color>
     <color name="colorMessageRight">#813fd7</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="light_pink">#E6ECDBFD</color>
 
 </resources>

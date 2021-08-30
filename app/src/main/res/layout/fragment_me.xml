@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
     tools:context=".ui.me.MeFragment">
 
     <View
@@ -15,65 +16,68 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@color/dark_grey"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/displaypicIV"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:paddingStart="8dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp"
-        app:layout_constraintStart_toStartOf="@+id/topView"
-        app:layout_constraintTop_toTopOf="@+id/topView"
-        app:layout_constraintBottom_toBottomOf="@+id/topView"
-        android:src="@drawable/cat_dp"/>
+        <ImageView
+            android:id="@+id/displaypicIV"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/cat_dp"/>
 
-    <TextView
-        android:id="@+id/usernameTV"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:paddingStart="8dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="@id/topView"
-        app:layout_constraintStart_toEndOf="@+id/displaypicIV"
-        app:layout_constraintBottom_toBottomOf="@+id/topView"/>
+        <TextView
+            android:id="@+id/usernameTV"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/topView"
+            app:layout_constraintStart_toEndOf="@+id/displaypicIV"
+            app:layout_constraintTop_toTopOf="@id/topView" />
 
-    <ImageButton
-        android:id="@+id/settingIB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:paddingStart="8dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp"
-        android:src="@drawable/settings"
-        app:layout_constraintBottom_toBottomOf="@+id/topView"
-        app:layout_constraintEnd_toEndOf="@+id/topView"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <ImageButton
+            android:id="@+id/logoutIB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="55dp"
+            android:minHeight="48dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/logout"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageButton
-        android:id="@+id/logoutIB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:onClick="showAlertDialog"
-        android:paddingStart="8dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp"
-        android:src="@drawable/logout"
-        app:layout_constraintBottom_toBottomOf="@+id/topView"
-        app:layout_constraintEnd_toStartOf="@+id/settingIB"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <ImageButton
+            android:id="@+id/settingIB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="55dp"
+            android:onClick="showAlertDialog"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/settings"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,11 +103,12 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager_2"
+        android:layout_marginTop="150dp"
+        android:nestedScrollingEnabled="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

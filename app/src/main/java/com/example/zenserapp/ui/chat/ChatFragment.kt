@@ -2,13 +2,25 @@ package com.example.zenserapp.ui.chat
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenserapp.R
+import android.view.Menu
+import android.view.MenuInflater
+import com.example.zenserapp.RegisterPage
+import com.example.zenserapp.User
 import com.example.zenserapp.databinding.FragmentChatBinding
+import com.example.zenserapp.ui.chat.NewMessageActivity.Companion.USER_KEY
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.Item
+import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.fragment_chat.*
+import kotlinx.android.synthetic.main.item_layout.view.*
 
 
 class ChatFragment : Fragment() {
@@ -16,16 +28,10 @@ class ChatFragment : Fragment() {
     private var _binding: FragmentChatBinding? = null
     private val binding get() = _binding!!
 
-    private var titlesList = mutableListOf<String>()
-    private var descList = mutableListOf<String>()
-    private var imagesList = mutableListOf<Int>()
-
-    val users: Array<String> = arrayOf("iAmBuyer1", "Anne", "Bob")
-    val userIcons: Array<Int> = arrayOf(R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round, R.mipmap.ic_launcher_round)
-
-
     companion object {
        fun newInstance() = ChatFragment()
+        var currentUser: User? = null
+        val TAG = "LatestMessages"
     }
 
     private lateinit var viewModel: ChatViewModel
@@ -37,45 +43,105 @@ class ChatFragment : Fragment() {
         _binding = FragmentChatBinding.inflate(inflater,container, false)
 
 
-        postToList()
+        //postToList()
+        binding.recyclerviewFragmentChat.layoutManager = LinearLayoutManager(context)
 
-        binding.rvRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.rvRecyclerView.adapter =
-            context?.let { RecyclerAdapter(it, titlesList, descList, imagesList) }
+        adapter.setOnItemClickListener {item, view ->
+            Log.d(TAG, "123")
+            val intent = Intent(context, ChatLogActivity::class.java)
 
+            val row = item as LatestMessageRow
+            intent.putExtra(USER_KEY, row.chatPartnerUser)
+
+            startActivity(intent)
+        }
+
+        listenForLatestMessages()
+
+        setHasOptionsMenu(true)
+
+        fetchCurrentUser()
+        binding.recyclerviewFragmentChat.adapter = adapter
         return binding.root
+    }
 
-    } // random comment
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(ChatViewModel::class.java)
-//        // TODO: Use the ViewModel
-//    }
+    val adapter = GroupAdapter<ViewHolder>()
+
+
+    val latestMessagesMap = HashMap<String, ChatLogActivity.ChatMessage>()
+
+    private fun refreshRecyclerviewMessages() {
+        adapter.clear()
+        latestMessagesMap.values.forEach{
+            adapter.add(LatestMessageRow(it))
+        }
+    }
+
+    private fun listenForLatestMessages() {
+        val fromId = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
+        ref.addChildEventListener(object: ChildEventListener{
+
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                val chatMessage = snapshot.getValue(ChatLogActivity.ChatMessage::class.java) ?: return
+
+                latestMessagesMap[snapshot.key!!] = chatMessage
+                refreshRecyclerviewMessages()
+            }
+
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                val chatMessage = snapshot.getValue(ChatLogActivity.ChatMessage::class.java) ?: return
+
+                latestMessagesMap[snapshot.key!!] = chatMessage
+                refreshRecyclerviewMessages()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+
+            }
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+
+            }
+        })
+    }
+
+    private fun fetchCurrentUser() {
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                currentUser = snapshot.getValue(User::class.java)
+                Log.d("LatestMessages", "CurrentUser: ${currentUser?.username}")
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
 
-    private fun addToList(title: String, description: String, image: Int) {
-        titlesList.add(title)
-        descList.add(description)
-        imagesList.add(image)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.chat_nav_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
-    private fun postToList() {
-        for (i in 1..3){
-            addToList(users[i-1], "Description $i", userIcons[i-1])
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item?.itemId) {
+            R.id.menu_new_message -> {
+                val intent = Intent(context, NewMessageActivity::class.java)
+                startActivity(intent)
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        binding.rvRecyclerView.setOnClickListener {
-//            val intent = Intent(context, ChatPage::class.java)
-//            context?.startActivity(intent)
-//        }
-//    }
 
 }

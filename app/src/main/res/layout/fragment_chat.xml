@@ -13,7 +13,6 @@
         android:layout_margin="0dp"
 
 
-        android:hint="@string/app_name"
         android:inputType="text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/searchIB"
@@ -33,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recyclerView"
+            android:id="@+id/recyclerview_fragment_chat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"

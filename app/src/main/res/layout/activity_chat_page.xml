@@ -2,17 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:apps="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/chat_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:background="@drawable/background_edit_text"
         android:backgroundTint="@color/dark_grey"
-        android:layout_marginTop="10dp"
         android:padding="5dp"
         android:text="10:03 am"
         android:textAlignment="center" />
@@ -98,8 +98,9 @@
                     android:layout_width="220dp"
                     android:layout_height="190dp"
                     android:background="@drawable/message_right_side_background"
-                    android:src="@drawable/ic_iphone_black"
-                    android:scaleType="centerInside"/>
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_iphone_black" />
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -114,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:orientation="horizontal">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -127,7 +129,17 @@
                         android:layout_marginRight="45dp"
                         android:background="@drawable/message_right_side_background"
                         android:padding="10dp"
-                        android:text="Congratulations! you have made an offer for this at S$1609."
+                        android:text="Congratulations! you have made an offer for this at"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/offer_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/message_3_text"
+                        android:layout_marginLeft="8.5dp"
+                        android:layout_marginTop="-134dp"
+                        android:text="$1609"
                         android:textColor="@color/white" />
 
                     <Button
@@ -200,3 +212,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+
