@@ -9,8 +9,7 @@
     <View
         android:id="@+id/mainView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_grey"/>
+        android:layout_height="match_parent"/>
 
     <TextView
         android:id="@+id/contactTV"
@@ -48,6 +47,8 @@
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
         android:layout_marginBottom="@dimen/margin_size"
+
+        android:textColor="@color/dark_grey"
 
         app:layout_constraintStart_toStartOf="@+id/detailView"
         app:layout_constraintTop_toTopOf="@+id/detailView" />
@@ -111,15 +112,16 @@
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/light_grey"
         android:ems="10"
+
         android:paddingStart="@dimen/padding_size"
-
         android:paddingTop="@dimen/padding_size"
-
         android:paddingEnd="@dimen/padding_size"
-
         android:paddingBottom="@dimen/padding_size"
+
         android:singleLine="false"
+
         app:layout_constraintEnd_toEndOf="@+id/mainView"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="@+id/mainView"

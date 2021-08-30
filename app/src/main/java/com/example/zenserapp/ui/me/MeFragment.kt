@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import android.content.DialogInterface
-
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
 
 class MeFragment : Fragment(R.layout.fragment_me) {
@@ -43,10 +43,6 @@ class MeFragment : Fragment(R.layout.fragment_me) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //get username from login activity
-    //    val username= activity?.intent?.getStringExtra("USERNAME")
-        //set username
-      //  binding.usernameTV.text=username
         db=FirebaseDatabase.getInstance().getReference("users")
         uid=FirebaseAuth.getInstance().currentUser?.uid.toString()
         if(uid.isNotEmpty()){

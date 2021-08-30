@@ -1,8 +1,10 @@
 package com.example.zenserapp
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import com.example.zenserapp.databinding.ActivitySettingPageBinding
@@ -13,13 +15,14 @@ import com.google.firebase.database.*
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DatabaseReference
+import kotlinx.android.parcel.Parcelize
 
 class SettingPage : AppCompatActivity() {
     private lateinit var binding: ActivitySettingPageBinding
     private lateinit var db:DatabaseReference
     private lateinit var uid:String
     val getUserid =FirebaseAuth.getInstance().uid
-   // var setTheme=""
+    var setStatus="0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,15 @@ class SettingPage : AppCompatActivity() {
         uid= FirebaseAuth.getInstance().currentUser?.uid.toString()
         if(uid.isNotEmpty()){
             getUserData()
+            getUserTheme()
+
+            if (setStatus == "1"){
+                binding.appearanceTB.setChecked(false)
+
+            } else {
+                binding.appearanceTB.setChecked(true)
+
+            }
         }
         else{
             Log.d("Chat","Failed")
@@ -50,36 +62,28 @@ class SettingPage : AppCompatActivity() {
         binding.saveBtn.setOnClickListener{
             saveUserToFirebaseDatabase()
         }
-/*
-        if (setTheme == "1"){
-            binding.appearanceTB.setChecked(true)
-        } else {
-            binding.appearanceTB.setChecked(false)
-        }
-
- */
 
         binding.appearanceTB.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked) {
                 //Dark
                 showSnackbar("Dark mode enabled")
 
-               // setTheme="1"
+                setStatus="1"
 
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 delegate.applyDayNight()
 
-                //saveUserThemeToFirebaseDatabase()
+                saveUserThemeToFirebaseDatabase()
             } else {
-                //Light
-                showSnackbar("Light mode enabled")
-
-               // setTheme="0"
+                setStatus="0"
 
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 delegate.applyDayNight()
 
-                //saveUserThemeToFirebaseDatabase()
+                //Light
+                showSnackbar("Light mode enabled")
+
+                saveUserThemeToFirebaseDatabase()
             }
         }
     }
@@ -128,38 +132,12 @@ class SettingPage : AppCompatActivity() {
                 showSnackbar("New profile details saved ")
             }
     }
-/*
-    private fun saveUserThemeToFirebaseDatabase(){
-        db.child(uid).addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val user_name=snapshot.child("username").getValue(String::class.java).toString()
-                val full_name=snapshot.child("fullname").getValue(String::class.java).toString()
-                val email=snapshot.child("email").getValue(String::class.java).toString()
-                val mobile=snapshot.child("mobile").getValue(String::class.java).toString()
-                val address=snapshot.child("addr").getValue(String::class.java).toString()
-                val getTheme=setTheme
-
-                val uid =FirebaseAuth.getInstance().uid
-                val ref=FirebaseDatabase.getInstance().getReference("/users/$uid")
-                val user=User(uid!!,full_name,user_name,email,mobile,address,getTheme)
-                ref.setValue(user)
-                    .addOnSuccessListener {
-                    }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("Database error",error.toString())
-            }
-        })
-    }
-
- */
 
     fun showAlertDialog(view: View) {
         MaterialAlertDialogBuilder(this)
             .setMessage("Are you sure you want to deactivate this account?")
             .setNegativeButton("Cancel") { dialog, which ->
-                showSnackbar("Deactivation of account canceled")
+                showSnackbar("Deactivation of account cancelled")
             }
             .setPositiveButton("Deactivate Account"){ dialog, which ->
                 val intent =Intent(this,LoginPage::class.java)
@@ -179,11 +157,46 @@ class SettingPage : AppCompatActivity() {
     }
 
     private fun showSnackbar(msg: String) {
-        Snackbar.make(binding.root, msg, Snackbar.LENGTH_SHORT).show()
+        val snackBar = Snackbar.make(binding.root, msg, Snackbar.LENGTH_SHORT)
+        snackBar.view.setBackgroundColor(Color.parseColor("#EDEAEA"))
+        snackBar.setTextColor(Color.parseColor("#000000"))
+        snackBar.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
+
+    fun getUserTheme(){
+        db= FirebaseDatabase.getInstance().getReference("theme")
+        db.child(uid).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val status=snapshot.child("status").getValue(String::class.java).toString()
+                setStatus=status
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("Database error",error.toString())
+            }
+        })
+    }
+
+    private fun saveUserThemeToFirebaseDatabase(){
+        val getStatus=setStatus
+
+        val uid =FirebaseAuth.getInstance().uid
+        val ref=FirebaseDatabase.getInstance().getReference("/theme/$uid")
+        val userTheme=UserTheme(uid!!,getStatus)
+        ref.setValue(userTheme)
+            .addOnSuccessListener {
+                //showSnackbar("New appearance saved ")
+            }
+    }
+}
+
+@Parcelize
+class UserTheme(val uid:String ,val status:String):
+    Parcelable {
+    constructor() : this("","")
 }
