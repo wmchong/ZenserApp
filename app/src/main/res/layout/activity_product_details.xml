@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0E0E0"
     tools:context=".ui.categories.ProductDetails">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:background="#E0E0E0"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,13 +20,22 @@
             android:id="@+id/iv_image"
             android:layout_width="250dp"
             android:layout_height="245dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:layout_gravity="center"
             android:background="@drawable/listing_image_layout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_iphone_black"
             tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/tv_Title"
@@ -49,9 +58,10 @@
                 android:id="@+id/btnFavourite"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/ic_baseline_favorite_24"
                 android:layout_marginStart="5dp"
-                android:clickable="true"/>
+                android:background="@drawable/ic_baseline_favorite_24"
+                android:clickable="true" />
+
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
@@ -59,8 +69,8 @@
                 android:layout_marginStart="5dp"
                 android:drawablePadding="20dp"
                 android:text="S$1639"
-                android:textSize="18sp"
-                android:textColor="@color/red" />
+                android:textColor="@color/red"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <TextView
@@ -81,7 +91,6 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="7dp"
             android:drawablePadding="20dp"
-            android:lines="3"
             android:text="Help queue for latest iPhone 15 black 256GB. PM for more details "
             android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_baseline_description_icon_24dp" />
@@ -93,10 +102,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="5dp"
-            android:text="iAmBuyer1"
-            android:drawablePadding="20dp"
-            android:textSize="20sp"
             android:drawableStart="@drawable/username_icon"
+            android:drawablePadding="20dp"
+            android:text="iAmBuyer1"
+            android:textSize="20sp"
 
             app:layout_constraintStart_toEndOf="@+id/profile_image" />
 
@@ -112,9 +121,9 @@
 
         <LinearLayout
             android:id="@+id/llMeetUp"
-            android:layout_marginTop="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:orientation="horizontal">
 
             <TextView
@@ -129,38 +138,44 @@
 
         <LinearLayout
             android:id="@+id/llDelivery"
-            android:layout_marginTop="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:orientation="horizontal">
 
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/btnChat"
-        android:layout_width="190dp"
-        android:layout_height="82dp"
-        android:gravity="center"
-        android:textColor="#000"
-        android:layout_marginStart="5dp"
-        android:text="CHAT"
-        android:textSize="20sp"
-        android:background="@drawable/white_button_background"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E0E0E0"
+        android:paddingTop="3dp"
+        android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:id="@+id/btnChat"
+            android:layout_width="190dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/white_button_background"
+            android:gravity="center"
+            android:text="CHAT"
+            android:textColor="#000"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/btnMakeOffer"
+            android:layout_width="190dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/red_button_background"
+            android:gravity="center"
+            android:text="MAKE AN OFFER"
+            android:textColor="#FFF"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/btnMakeOffer"
-        android:layout_width="190dp"
-        android:layout_height="83dp"
-        android:gravity="center"
-        android:text="MAKE AN OFFER"
-        android:layout_marginEnd="5dp"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        android:background="@drawable/red_button_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -77,16 +77,18 @@
         <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_me.xml" value="0.12563323201621074" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/item_layout.xml" value="0.15715579710144928" />
-        <entry key="app/src/main/res/layout/listing.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/listing.xml" value="0.375" />
         <entry key="app/src/main/res/layout/listing_details.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/make_offer_dialog.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/message_left.xml" value="0.25" />
         <entry key="app/src/main/res/layout/message_right.xml" value="0.25" />
         <entry key="app/src/main/res/layout/product.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/layout/row_results.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/user_row_new_message.xml" value="0.1816123188405797" />
         <entry key="app/src/main/res/layout/wishlist.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2453125" />
         <entry key="app/src/main/res/menu/chat_menu.xml" value="0.2994791666666667" />

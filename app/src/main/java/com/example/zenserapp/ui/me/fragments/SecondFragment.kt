@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.zenserapp.databinding.FragmentSecondBinding
-import com.example.zenserapp.ui.categories.MyAdapter
 import com.example.zenserapp.ui.categories.MyAdapterWishlist
 import com.example.zenserapp.ui.categories.Product
 import com.google.firebase.auth.FirebaseAuth
