@@ -46,14 +46,6 @@ class SettingPage : AppCompatActivity() {
         if(uid.isNotEmpty()){
             getUserData()
             getUserTheme()
-
-            if (setStatus == "1"){
-                binding.appearanceTB.setChecked(false)
-
-            } else {
-                binding.appearanceTB.setChecked(true)
-
-            }
         }
         else{
             Log.d("Chat","Failed")
@@ -174,6 +166,14 @@ class SettingPage : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val status=snapshot.child("status").getValue(String::class.java).toString()
                 setStatus=status
+
+                if (setStatus == "1"){
+                    binding.appearanceTB.setChecked(true)
+
+                } else {
+                    binding.appearanceTB.setChecked(false)
+
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

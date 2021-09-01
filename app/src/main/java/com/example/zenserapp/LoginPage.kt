@@ -51,11 +51,12 @@ class LoginPage : AppCompatActivity() {
 
                            return@addOnCompleteListener
                        }
+                       //get user's theme
+                       getUserTheme()
+
                        val intent=Intent(this,MainActivity::class.java)
                        startActivity(intent)
                       // Toast.makeText(this, "Successfully Logged in", Toast.LENGTH_SHORT).show()
-                       getUserTheme()
-
 
                    }
              }

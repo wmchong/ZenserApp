@@ -10,16 +10,24 @@ import android.view.ViewGroup
 import com.example.zenserapp.R
 import com.example.zenserapp.databinding.FragmentMeBinding
 import android.util.Log
-import android.widget.Toast
 import com.example.zenserapp.LoginPage
 import com.example.zenserapp.SettingPage
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 import android.content.DialogInterface
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
+import android.graphics.Color
+import android.net.Uri
+import android.os.Parcelable
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.net.toUri
+import com.example.zenserapp.ui.sell.Product
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.parcel.Parcelize
+import java.util.*
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
 
 class MeFragment : Fragment(R.layout.fragment_me) {
@@ -28,13 +36,20 @@ class MeFragment : Fragment(R.layout.fragment_me) {
     private val binding get() = _binding!!
     private lateinit var db:DatabaseReference
     private lateinit var uid:String
+    // request code to pick image
+    private val PICK_IMAGES_CODE = 0
 
+    var displayString = ""
+
+    private var selectedPhotoUri:Uri?=null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        uid=FirebaseAuth.getInstance().currentUser?.uid.toString()
 
         _binding = FragmentMeBinding.inflate(inflater, container, false)
         return binding.root
@@ -45,8 +60,12 @@ class MeFragment : Fragment(R.layout.fragment_me) {
 
         db=FirebaseDatabase.getInstance().getReference("users")
         uid=FirebaseAuth.getInstance().currentUser?.uid.toString()
+
         if(uid.isNotEmpty()){
+
             getUserData()
+            getUserDisplay()
+
         }
         else{
             Log.d("Chat","Failed")
@@ -79,6 +98,12 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         binding.logoutIB.setOnClickListener {
             showAlertDialog()
         }
+
+        binding.displayIS.setFactory { ImageView(context) }
+
+        binding.displayIS.setOnClickListener{
+            pickImageIntent()
+        }
     }
 
     fun showAlertDialog() {
@@ -104,8 +129,7 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         _binding = null
     }
 
-
-     fun getUserData(){
+    fun getUserData(){
         db.child(uid).addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user_name=snapshot.child("username").getValue(String::class.java).toString()
@@ -120,4 +144,93 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         })
     }
 
+    private fun pickImageIntent() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGES_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGES_CODE) {
+            // picked single image
+            val imageUri = data!!.data
+
+            //set function to save to firebase
+            selectedPhotoUri=imageUri
+            saveUserDisplayToFirebaseDatabase()
+        }
+    }
+
+    fun getUserDisplay(){
+        db= FirebaseDatabase.getInstance().getReference("display")
+        db.child(uid).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val dpUri=snapshot.child("imageUri").getValue(String::class.java).toString()
+                displayString = dpUri
+                Log.d("displayString",displayString)
+
+                if (displayString.contains("https://firebasestorage.googleapis.com")){
+                    val temp = displayString.toUri()
+                    Log.d("temp",temp.toString())
+                    Picasso.get().load(temp).into(binding.displayIV)
+                    binding.displayIV.setImageResource(android.R.color.transparent)
+                } else {
+                    binding.displayIV.setImageResource(R.drawable.anon)
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("Database error",error.toString())
+            }
+        })
+    }
+
+    private fun saveUserDisplayToFirebaseDatabase(){
+        val uid =FirebaseAuth.getInstance().uid
+        val filename= UUID.randomUUID().toString()
+        val ref=FirebaseStorage.getInstance().getReference("/display/$uid/$filename")
+
+        Log.d("displayString",displayString)
+        Log.d("selectedPhotoUri",selectedPhotoUri.toString())
+        if (selectedPhotoUri != null) {
+            ref.putFile(selectedPhotoUri!!)
+                .addOnSuccessListener {
+                    Log.d("Upload","Image uploaded")
+                    ref.downloadUrl.addOnSuccessListener {
+                        it.toString()
+                        Log.d("upload","File location: $it")
+                        handleSelection(it.toString())
+                        showSnackbar("New display picture saved")
+                    }
+                        .addOnFailureListener{
+
+                        }
+
+                }
+        }
+    }
+
+    private fun handleSelection(imageUrl:String) {
+        val ref =
+            FirebaseDatabase.getInstance().getReference("/display/$uid")
+        val user = UserDisplay(uid,imageUrl)
+        ref.setValue(user)
+            .addOnSuccessListener {
+                Log.d("Insert Activity", "product saved to database")
+            }
+    }
+
+    private fun showSnackbar(msg: String) {
+        val snackBar = Snackbar.make(binding.root, msg, Snackbar.LENGTH_SHORT)
+        snackBar.view.setBackgroundColor(Color.parseColor("#EDEAEA"))
+        snackBar.setTextColor(Color.parseColor("#000000"))
+        snackBar.show()
+    }
+}
+class UserDisplay(val uid:String ,val imageUri:String) {
+    constructor() : this("","")
 }

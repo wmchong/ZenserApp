@@ -131,8 +131,6 @@ class SellFragment : Fragment(), SellRecyclerAdapter.OnItemClickListener {
         else{
             context?.startActivity(intent)
         }
-
-
     }
 
     private fun generateCategoryList(): List<Category> {
