@@ -24,9 +24,7 @@ class LoginPage : AppCompatActivity() {
         binding= ActivityLoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //database
-        val helperDB= MyDBHelper(applicationContext)
-       // val myDB = helperDB.readableDatabase
+
 
         binding.tvForgotpassword.setOnClickListener {
             val intent=Intent(this,ForgotPassword::class.java)
@@ -34,13 +32,15 @@ class LoginPage : AppCompatActivity() {
         }
 
          binding.bLogin.setOnClickListener {
-             val getUsername: String = binding.etUsernameLogin.text.toString()
+             val getEmail: String = binding.etEmailLogin.text.toString()
              val getPassword: String = binding.etPasswordLogin.text.toString()
 
-             if (getUsername == "" || getPassword == "") {
+             //check if user leaves any of the field empty
+             if (getEmail.isEmpty() || getPassword.isEmpty()) {
                  binding.tvStatusLogin.text = "Fields Are Empty"
              } else {
-               FirebaseAuth.getInstance().signInWithEmailAndPassword(getUsername,getPassword)
+               //verify E-mail and password
+               FirebaseAuth.getInstance().signInWithEmailAndPassword(getEmail,getPassword)
                    .addOnCompleteListener {
                        if (!it.isSuccessful) {
                            Toast.makeText(
@@ -53,7 +53,7 @@ class LoginPage : AppCompatActivity() {
                        }
                        //get user's theme
                        getUserTheme()
-
+                       // Logs in after verifying the username and password
                        val intent=Intent(this,MainActivity::class.java)
                        startActivity(intent)
                       // Toast.makeText(this, "Successfully Logged in", Toast.LENGTH_SHORT).show()

@@ -1,7 +1,5 @@
 package com.example.zenserapp.ui.categories
 
-import android.net.Uri
-
 
 data class Product(val title:String?="",
                    val price:String?="",

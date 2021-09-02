@@ -32,7 +32,7 @@ class WomenFashionHome : AppCompatActivity() {
         getUserData()
 
     }
-
+    //gets data from firebase and list it using adapter
     private fun getUserData() {
         dbref = FirebaseDatabase.getInstance().getReference("/products/Women's Fashion")
         dbref.addValueEventListener(object : ValueEventListener {

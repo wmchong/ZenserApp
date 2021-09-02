@@ -155,14 +155,20 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGES_CODE) {
-            // picked single image
-            val imageUri = data!!.data
+            if (data != null) {
+                // picked single image
+                val imageUri = data.data
 
-            //set function to save to firebase
-            selectedPhotoUri=imageUri
-            saveUserDisplayToFirebaseDatabase()
+                //set function to save to firebase
+                selectedPhotoUri = imageUri
+                saveUserDisplayToFirebaseDatabase()
+            }
         }
-    }
+        else{
+            Toast.makeText(context,"Please choose an image",Toast.LENGTH_SHORT).show()
+        }
+        }
+    
 
     fun getUserDisplay(){
         db= FirebaseDatabase.getInstance().getReference("display")
@@ -170,6 +176,7 @@ class MeFragment : Fragment(R.layout.fragment_me) {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val dpUri=snapshot.child("imageUri").getValue(String::class.java).toString()
                 displayString = dpUri
+
                 Log.d("displayString",displayString)
 
                 if (displayString.contains("https://firebasestorage.googleapis.com")){
@@ -220,7 +227,7 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         val user = UserDisplay(uid,imageUrl)
         ref.setValue(user)
             .addOnSuccessListener {
-                Log.d("Insert Activity", "product saved to database")
+                Log.d("Insert Activity", "image saved to database")
             }
     }
 

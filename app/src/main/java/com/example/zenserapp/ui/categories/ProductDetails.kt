@@ -50,7 +50,7 @@ class ProductDetails : AppCompatActivity() {
         binding.tvMethodDelivery.text=method
         Picasso.get().load(image).into(binding.ivImage)
 
-        val user = User(uid!!,"",sellerName!!,"","","" )
+        val user = User(uid.toString(),"",sellerName.toString(),"","","" )
 
         //action bar
         val actionbar = supportActionBar

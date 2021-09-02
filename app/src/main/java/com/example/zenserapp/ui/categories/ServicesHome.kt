@@ -32,7 +32,7 @@ class ServicesHome : AppCompatActivity() {
         getUserData()
 
     }
-
+    //gets data from firebase and list it using adapter
     private fun getUserData() {
         dbref = FirebaseDatabase.getInstance().getReference("/products/Services")
         dbref.addValueEventListener(object : ValueEventListener {

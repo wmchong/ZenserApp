@@ -53,7 +53,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.categories.DealsPageHome" />
         <activity android:name=".ui.categories.WomenFashionHome" />
         <activity android:name=".ui.categories.MenFashionHome" />
         <activity android:name=".ui.categories.EducationHome" />

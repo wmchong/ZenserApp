@@ -32,7 +32,7 @@ class VoucherHome : AppCompatActivity() {
         getUserData()
 
     }
-
+    //gets data from firebase and list it using adapter
     private fun getUserData() {
         dbref = FirebaseDatabase.getInstance().getReference("/products/Tickets & Vouchers")
         dbref.addValueEventListener(object : ValueEventListener {

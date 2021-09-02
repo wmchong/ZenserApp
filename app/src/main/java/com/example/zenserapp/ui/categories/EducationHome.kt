@@ -32,7 +32,7 @@ class EducationHome : AppCompatActivity() {
         getUserData()
 
     }
-
+    //gets data from firebase and list it using adapter
     private fun getUserData() {
         dbref = FirebaseDatabase.getInstance().getReference("/products/Learning & Enrichment")
         dbref.addValueEventListener(object : ValueEventListener {

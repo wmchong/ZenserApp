@@ -1,6 +1,7 @@
 package com.example.zenserapp.ui.categories
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -27,6 +28,7 @@ class MyAdapterListing(private val context: Context, private val productList:Arr
         return  MyViewHolder(itemView)
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = productList[position]
@@ -50,6 +52,33 @@ class MyAdapterListing(private val context: Context, private val productList:Arr
             notifyDataSetChanged()
 
         }
+        holder.remove.setOnClickListener {
+            val builder = AlertDialog.Builder(context)
+            val uid=FirebaseAuth.getInstance().uid
+            builder.setMessage("Are you sure you want to Delete?")
+                .setCancelable(false)
+                .setPositiveButton("Yes") { dialog, id ->
+
+                    FirebaseDatabase.getInstance().getReference("/listing/$uid/${currentItem.title}").removeValue()
+                    FirebaseDatabase.getInstance().getReference("/products/Computers & Tech/${currentItem.title}").child("uid").parent?.removeValue()
+                    FirebaseDatabase.getInstance().getReference("/products/Learning & Enrichment/${currentItem.title}").child("uid").parent?.removeValue()
+                    FirebaseDatabase.getInstance().getReference("/products/Men's Fashion/${currentItem.title}").child("uid").parent?.removeValue()
+                    FirebaseDatabase.getInstance().getReference("/products/Services/${currentItem.title}").child("uid").parent?.removeValue()
+                    FirebaseDatabase.getInstance().getReference("/products/Tickets & Vouchers/${currentItem.title}").child("uid").parent?.removeValue()
+                    FirebaseDatabase.getInstance().getReference("/products/Women's Fashion/${currentItem.title}").child("uid").parent?.removeValue()
+                    FirebaseDatabase.getInstance().getReference("/searchListings/${currentItem.title}").child("uid").parent?.removeValue()
+
+                    productList.remove(currentItem)
+                    notifyDataSetChanged()
+
+                }
+                .setNegativeButton("No") { dialog, id ->
+                    dialog.dismiss()
+                }
+            val alert = builder.create()
+            alert.show()
+        }
+
     }
 
 
@@ -62,6 +91,7 @@ class MyAdapterListing(private val context: Context, private val productList:Arr
         var title: TextView =itemView.findViewById(R.id.tv_title)
         var price: TextView =itemView.findViewById(R.id.tv_price)
         var username: TextView =itemView.findViewById(R.id.tv_username)
+        var remove: ImageView=itemView.findViewById(R.id.iv_remove)
 
     }
 

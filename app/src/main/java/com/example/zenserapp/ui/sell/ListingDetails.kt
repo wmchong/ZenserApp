@@ -141,7 +141,7 @@ class ListingDetails : AppCompatActivity() {
                 user_name,
                 imageUrl,
                 productTitle,
-                productPrice,
+                "S$$productPrice",
                 productDesc,
                 chip?.text.toString(),
                 radioButton.text.toString()
@@ -160,7 +160,7 @@ class ListingDetails : AppCompatActivity() {
                 user_name,
                 imageUrl,
                 productTitle,
-                productPrice,
+                "S$$productPrice",
                 productDesc,
                 chip?.text.toString(),
                 radioButton.text.toString()
@@ -178,7 +178,7 @@ class ListingDetails : AppCompatActivity() {
                 user_name,
                 imageUrl,
                 productTitle,
-                productPrice,
+                "S$$productPrice",
                 productDesc,
                 chip?.text.toString(),
                 radioButton.text.toString()

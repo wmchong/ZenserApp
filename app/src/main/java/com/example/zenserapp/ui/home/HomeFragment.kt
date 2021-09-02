@@ -35,36 +35,35 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //Services page
         binding.cvService.setOnClickListener {
             val intent = Intent(context, ServicesHome::class.java)
             context?.startActivity(intent)
         }
-
+        //Computers & Tech page
         binding.cvComputer.setOnClickListener {
             val intent = Intent(context, ComputerAndTechHome::class.java)
             context?.startActivity(intent)
         }
-
+        // Tickets & Vouchers page
         binding.cvVouchers.setOnClickListener {
             val intent = Intent(context, VoucherHome::class.java)
             context?.startActivity(intent)
         }
+        //Learning & Enrichment page
         binding.cvEducation.setOnClickListener {
             val intent = Intent(context, EducationHome::class.java)
             context?.startActivity(intent)
         }
+        //Women's Fashion page
         binding.cvWomenFashion.setOnClickListener {
             val intent = Intent(context, WomenFashionHome::class.java)
             context?.startActivity(intent)
         }
+        //Men's Fashion page
         binding.cvMenFashion.setOnClickListener {
             val intent = Intent(context, MenFashionHome::class.java)
             context?.startActivity(intent)
-        }
-        binding.ivBlackfriday.setOnClickListener {
-           val intent = Intent(context, DealsPageHome::class.java)
-           context?.startActivity(intent)
         }
     }
 

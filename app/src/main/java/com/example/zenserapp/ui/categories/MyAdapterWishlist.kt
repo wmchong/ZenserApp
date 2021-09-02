@@ -38,8 +38,6 @@ class MyAdapterWishlist(private val context: Context, private val productList:Ar
         holder.title.text = currentItem.title
         holder.price.text = currentItem.price
         holder.username.text = currentItem.username
-        //  Picasso.get().load(productList[position].image).into(holder.image?.findViewById(R.id.iv_productImage))
-        //  Glide.with(context).load(currentItem.imageUrl).into(holder.image)
         Picasso.get().load(currentItem.imageUrl).into(holder.image)
 
         holder.itemView.setOnClickListener {
@@ -52,13 +50,13 @@ class MyAdapterWishlist(private val context: Context, private val productList:Ar
             intent.putExtra("Condition", currentItem.condition)
             intent.putExtra("Method", currentItem.methodDelivery)
             context.startActivity(intent)
+            notifyDataSetChanged()
 
         }
 
         holder.favourites.setOnClickListener {
-                val ref =
-                    FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}").removeValue()
-                holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+            FirebaseDatabase.getInstance().getReference("/wishlist/$uid/${currentItem.title}").removeValue()
+            holder.favourites.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
             productList.remove(currentItem)
             notifyDataSetChanged()
 

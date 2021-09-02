@@ -51,6 +51,7 @@ class RegisterPage : AppCompatActivity() {
             else
             {
                 if(getPassword==getPasswordConfirm){
+                    //creates an account with the email and password
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(getEmail, getPassword)
                         .addOnCompleteListener {
                             if (!it.isSuccessful) {
@@ -90,6 +91,7 @@ class RegisterPage : AppCompatActivity() {
         onBackPressed()
         return true
     }
+    //saving user information to firebase
     private fun saveUserToFirebaseDatabase(){
         val getName = binding.etFullnameRegister.text.toString()
         val getUsername = binding.etUsernameRegister.text.toString()
