@@ -1,4 +1,4 @@
-# ZenserApp
+# Zenser
 
 Zenser is an android application built by a group of student for an assignment.
 
