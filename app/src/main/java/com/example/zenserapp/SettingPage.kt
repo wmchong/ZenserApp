@@ -48,7 +48,7 @@ class SettingPage : AppCompatActivity() {
             getUserTheme()
         }
         else{
-            Log.d("Chat","Failed")
+            Log.d("Connection","Failed")
         }
 
         binding.saveBtn.setOnClickListener{
@@ -172,7 +172,6 @@ class SettingPage : AppCompatActivity() {
 
                 } else {
                     binding.appearanceTB.setChecked(false)
-
                 }
             }
 
@@ -184,7 +183,6 @@ class SettingPage : AppCompatActivity() {
 
     private fun saveUserThemeToFirebaseDatabase(){
         val getStatus=setStatus
-
         val uid =FirebaseAuth.getInstance().uid
         val ref=FirebaseDatabase.getInstance().getReference("/theme/$uid")
         val userTheme=UserTheme(uid!!,getStatus)

@@ -62,7 +62,6 @@ class MeFragment : Fragment(R.layout.fragment_me) {
         uid=FirebaseAuth.getInstance().currentUser?.uid.toString()
 
         if(uid.isNotEmpty()){
-
             getUserData()
             getUserDisplay()
 
