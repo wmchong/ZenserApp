@@ -8,14 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.zenserapp.R
-import com.example.zenserapp.databinding.FragmentFirstBinding
+import com.example.zenserapp.databinding.FragmentThirdBinding
 import com.example.zenserapp.ui.categories.MyAdapterListing
 import com.example.zenserapp.ui.categories.Product
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class ThirdFragment : Fragment() {
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentThirdBinding? = null
     private val binding get() = _binding!!
     private lateinit var dbref: DatabaseReference
     private lateinit var productArrayList: ArrayList<Product>
@@ -26,9 +26,9 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentThirdBinding.inflate(inflater, container, false)
 
-
+/*
         binding.rvListing.layoutManager = GridLayoutManager(context, 2)
         binding.rvListing.setHasFixedSize(true)
         binding.rvListing.setItemViewCacheSize(20);
@@ -36,8 +36,12 @@ class ThirdFragment : Fragment() {
         productArrayList = arrayListOf<Product>()
         getUserData()
 
+ */
+
+
         return binding.root
     }
+    /*
     private fun getUserData() {
 
         dbref = FirebaseDatabase.getInstance().getReference("/purchase/$uid")
@@ -50,7 +54,8 @@ class ThirdFragment : Fragment() {
                         val product = productSnapshot.getValue(Product::class.java)
                         productArrayList.add(product!!)
                     }
-                    binding.rvListing.adapter = context?.let { MyAdapterListing(it,productArrayList) }
+                    binding.
+                    rvListing.adapter = context?.let { MyAdapterListing(it,productArrayList) }
                 }
             }
 
@@ -60,5 +65,7 @@ class ThirdFragment : Fragment() {
         })
 
     }
+
+     */
 
 }
