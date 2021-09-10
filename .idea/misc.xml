@@ -11,20 +11,16 @@
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_deals_page.xml" value="0.24682971014492755" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_education_home.xml" value="0.24682971014492755" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
-        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_help_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_listing1.xml" value="0.23867753623188406" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_men_fashion_home.xml" value="0.24682971014492755" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_product_details.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_register_page.xml" value="0.24682971014492755" />
-        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_search_result_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_services_home.xml" value="0.24682971014492755" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_single_listing1.xml" value="0.23867753623188406" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_voucher_home.xml" value="0.24682971014492755" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/activity_women_fashion_home.xml" value="0.24682971014492755" />
-        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/category_item.xml" value="0.1" />
-        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/example.xml" value="0.264" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_chat.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_home.xml" value="0.2536231884057971" />
@@ -33,7 +29,7 @@
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_sell.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/fragment_third.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/item_layout.xml" value="0.2536231884057971" />
-        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/listing.xml" value="0.264" />
+        <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/listing.xml" value="0.1" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/listing_details.xml" value="0.12" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/make_offer_dialog.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/rishi/Desktop/Project/ZenserApp/app/src/main/res/layout/product.xml" value="0.26031746031746034" />
@@ -42,9 +38,8 @@
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_login_page.xml" value="0.358695652173913" />
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/activity_setting_page.xml" value="0.1947463768115942" />
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_first.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.1" />
+        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_me.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_second.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_sell.xml" value="0.15217391304347827" />
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/fragment_third.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/item_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/weime/AndroidStudioProjects/ZenserApp/app/src/main/res/layout/listing_details.xml" value="0.1" />
@@ -79,7 +74,7 @@
         <entry key="app/src/main/res/layout/activity_voucher_home.xml" value="0.15715579710144928" />
         <entry key="app/src/main/res/layout/example_item.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.15715579710144928" />
-        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_me.xml" value="0.12563323201621074" />
@@ -92,7 +87,7 @@
         <entry key="app/src/main/res/layout/message_left.xml" value="0.25" />
         <entry key="app/src/main/res/layout/message_right.xml" value="0.25" />
         <entry key="app/src/main/res/layout/product.xml" value="0.23233695652173914" />
-        <entry key="app/src/main/res/layout/row_results.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/row_results.xml" value="0.165" />
         <entry key="app/src/main/res/layout/user_row_new_message.xml" value="0.1816123188405797" />
         <entry key="app/src/main/res/layout/wishlist.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2453125" />
@@ -100,7 +95,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

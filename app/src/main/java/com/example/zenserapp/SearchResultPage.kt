@@ -11,7 +11,6 @@ import com.google.firebase.database.*
 
 class SearchResultPage : AppCompatActivity() {
     private lateinit var binding: ActivitySearchResultPageBinding
-    private lateinit var dbref: DatabaseReference
     private lateinit var productArrayList:ArrayList<Product>
     var keyTitle: String?=""
 
@@ -26,6 +25,7 @@ class SearchResultPage : AppCompatActivity() {
         //back button
         actionbar.setDisplayHomeAsUpEnabled(true)
 
+        //get keyword in previous Explore Fragment and show it on the text view
         val keyWord = intent.getStringExtra("KeyWord")
         Log.e("keyword","$keyWord")
         binding.tvTextInSearchBox.text = keyWord
@@ -36,10 +36,10 @@ class SearchResultPage : AppCompatActivity() {
         binding.rvResultLists.setItemViewCacheSize(20);
 
         productArrayList= arrayListOf<Product>()
-        getSpecificData()
+        getRelatedData()
     }
 
-    private fun getSpecificData(){
+    private fun getRelatedData(){
         val query:Query = FirebaseDatabase.getInstance().getReference("/searchListings")
 
         query.addListenerForSingleValueEvent(object: ValueEventListener{

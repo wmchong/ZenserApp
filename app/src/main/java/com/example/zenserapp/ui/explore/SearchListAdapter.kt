@@ -1,39 +1,3 @@
-//package com.example.zenserapp.ui.explore
-//
-//import android.content.Intent
-//import android.view.LayoutInflater
-//import android.view.View
-//import android.view.ViewGroup
-//import android.widget.TextView
-//import androidx.recyclerview.widget.RecyclerView
-//import com.example.zenserapp.R
-//import com.squareup.picasso.Picasso
-//
-//class SearchListAdapter(var searchList: List<SearchModel>): RecyclerView.Adapter<SearchListAdapter.SearchListViewHolder>(){
-//    class SearchListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-//        fun bind(searchModel: SearchModel){
-//            var title : TextView =itemView.findViewById(R.id.tvSearchResult)
-//        }
-//    }
-//
-//    override fun onCreateViewHolder(
-//        parent: ViewGroup,
-//        viewType: Int
-//    ): SearchListAdapter.SearchListViewHolder {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_results, parent, false)
-//        return SearchListViewHolder(view)
-//    }
-//
-//    override fun onBindViewHolder(holder: SearchListAdapter.SearchListViewHolder, position: Int) {
-//        holder.bind(searchList[position])
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return searchList.size
-//    }
-//
-//}
-
 package com.example.zenserapp.ui.explore
 
 import android.view.LayoutInflater
@@ -82,6 +46,7 @@ class SearchListAdapter (var clickListener: ClickListener) : RecyclerView.Adapte
         fun ClickedItem(searchModel: SearchModel)
     }
 
+    //filter the searchModal
     override fun getFilter(): Filter {
         return object: Filter(){
             override fun performFiltering(charsequence: CharSequence?): FilterResults {

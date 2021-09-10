@@ -83,12 +83,6 @@ class ProductDetails : AppCompatActivity() {
         })
 
         //chat button
-//        binding.btnChat.setOnClickListener {
-//            val intent = Intent(this, ChatPage::class.java)
-//            intent.putExtra("SELLERNAME", sellerName)
-//            startActivity(intent)
-//        }
-
         binding.btnChat.setOnClickListener {
             val intent = Intent(this, ChatLogActivity::class.java)
             intent.putExtra(USER_KEY, user)
@@ -131,27 +125,33 @@ class ProductDetails : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setView(dialogView)
             dialogBuilder.setTitle("$sellerName is selling this for $ $price")
+
             //show dialog
             val offerDialogAlert = dialogBuilder.show()
-
             //when user clicks on cancel button
             dialogView.findViewById<Button>(R.id.btnCancel).setOnClickListener {
                 offerDialogAlert.dismiss()
             }
-
             //when user confirms the offer
             dialogView.findViewById<Button>(R.id.btnConfirmOffer).setOnClickListener {
-                //dismiss dialog
-                offerDialogAlert.dismiss()
                 //get input price from EditTexts of custom layout
-                val enterPrice = dialogView.findViewById<EditText>(R.id.etOfferPrice).text.toString()
-                Log.e("Enter Price", enterPrice)
+                val enterPrice = dialogView.findViewById<EditText>(R.id.etOfferPrice).text
+                if(enterPrice.isEmpty()){
+                    Toast.makeText(this, "invalid input", Toast.LENGTH_SHORT).show()
+                }else{
+                    //dismiss dialog
+                    offerDialogAlert.dismiss()
 
-                val intent = Intent(this, ChatLogActivity::class.java)
-                intent.putExtra(USER_KEY, user)
-                intent.putExtra("OFFERPRICE", enterPrice)
-                intent.putExtra("TITLE", title)
-                startActivity(intent)
+                    val enterPriceString = enterPrice.toString()
+                    Log.e("Enter Price", enterPriceString)
+
+                    val intent = Intent(this, ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY, user)
+                    intent.putExtra("OFFERPRICE", enterPriceString)
+                    intent.putExtra("TITLE", title)
+                    startActivity(intent)
+                }
+
             }
         }
     }

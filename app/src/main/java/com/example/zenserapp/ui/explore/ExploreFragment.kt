@@ -20,7 +20,7 @@ class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
 
     private lateinit var dbref:DatabaseReference
     val searchList = ArrayList<SearchModel>()
-    var searchListAdapter: SearchListAdapter? = null;
+    var searchListAdapter: SearchListAdapter? = null
     var keyWord:String?=""
 
     override fun onCreateView( inflater: LayoutInflater,
@@ -30,8 +30,9 @@ class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
         exploreViewModel = ViewModelProvider(this).get(ExploreViewModel::class.java)
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
 
+        //get all the listing titles from firebase
         dbref=FirebaseDatabase.getInstance().getReference("/searchListings")
-        getData()
+        getTitle()
 
         searchListAdapter = SearchListAdapter(this)
         searchListAdapter!!.setData(searchList)
@@ -83,7 +84,7 @@ class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
     }
 
     //get title from firebase
-    private fun getData(){
+    private fun getTitle(){
         searchList.clear()
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -91,7 +92,7 @@ class ExploreFragment : Fragment(), SearchListAdapter.ClickListener  {
                     for(nameSnapshot in snapshot.children){
                         Log.e("snapshot children", "$nameSnapshot")
                         val title= nameSnapshot.child("title").getValue(String::class.java)!!.lowercase()
-                        Log.e("snapshot children title", "$title")
+                        Log.e("snapshot children title","$title")
                         val searchmodel = SearchModel(title = "$title")
                         searchList.add(searchmodel)
                         Log.e("search list size", "${searchList.size}")
