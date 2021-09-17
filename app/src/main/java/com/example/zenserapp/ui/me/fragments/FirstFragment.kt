@@ -37,7 +37,6 @@ class FirstFragment : Fragment() {
 
         productArrayList = arrayListOf<Product>()
         getUserData()
-
         return binding.root
     }
     private fun getUserData() {

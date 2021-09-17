@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
+import android.view.WindowManager
 import com.example.zenserapp.R
 import com.example.zenserapp.User
 import com.google.firebase.auth.FirebaseAuth
@@ -18,11 +18,7 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_log.*
 import kotlinx.android.synthetic.main.message_left.view.*
-import kotlinx.android.synthetic.main.message_right.*
 import kotlinx.android.synthetic.main.message_right.view.*
-import kotlinx.android.synthetic.main.user_row_new_message.view.*
-import java.sql.Timestamp
-import java.util.*
 
 class ChatLogActivity : AppCompatActivity() {
 
@@ -37,6 +33,8 @@ class ChatLogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_log)
+
+        this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
 
         recyclerview_chat_log.adapter = adapter
 
@@ -55,25 +53,25 @@ class ChatLogActivity : AppCompatActivity() {
 
 
         if(offerPrice != null) {
-            listenForMessages()
+            loadMessages()
             Handler().postDelayed({
-                performOfferMessage(offerPrice.toString(), productTitle.toString())
+                sendOfferMessage(offerPrice.toString(), productTitle.toString())
             }, 2000)
 
         } else {
-            listenForMessages()
+            loadMessages()
             Log.d("ERORRRRR OFFER PRICE TAGGGGGGGGG", offerPrice.toString())
         }
 
         send_button_chat_log.setOnClickListener {
             Log.d(TAG, "attempt to send message....")
-            performSendMessage()
+            sendMessage()
         }
     }
 
 
 
-    private fun listenForMessages() {
+    private fun loadMessages() {
         val fromId = FirebaseAuth.getInstance().uid
         val toId = toUser?.uid
         val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
@@ -86,9 +84,9 @@ class ChatLogActivity : AppCompatActivity() {
 
                     if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
                         val currentUser = ChatFragment.currentUser?: return
-                        adapter.add(ChatToItem(chatMessage.text, currentUser))
+                        adapter.add(ChatRightItem(chatMessage.text, currentUser))
                     } else {
-                        adapter.add(ChatFromItem(chatMessage.text, toUser!!))
+                        adapter.add(ChatLeftItem(chatMessage.text, toUser!!))
                     }
                 }
 
@@ -117,7 +115,7 @@ class ChatLogActivity : AppCompatActivity() {
         constructor() : this("", "", "", "",-1)
     }
 
-    private fun performSendMessage() {
+    private fun sendMessage() {
         val text = edittext_chat_log.text.toString()
         val fromId = FirebaseAuth.getInstance().uid
         val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
@@ -146,7 +144,7 @@ class ChatLogActivity : AppCompatActivity() {
         latestMessageToRef.setValue(chatMessage)
     }
 
-    private fun performOfferMessage(offerPrice: String, productTitle: String) {
+    private fun sendOfferMessage(offerPrice: String, productTitle: String) {
         val text = "Made an offer of $$offerPrice for $productTitle."
         val fromId = FirebaseAuth.getInstance().uid
         //val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
@@ -182,7 +180,7 @@ class ChatLogActivity : AppCompatActivity() {
     }
 }
 
-class ChatFromItem(val text: String, val user: User): Item<ViewHolder>() {
+class ChatLeftItem(val text: String, val user: User): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.textview_left.text = text
 
@@ -194,12 +192,12 @@ class ChatFromItem(val text: String, val user: User): Item<ViewHolder>() {
     }
 }
 
-class ChatToItem(val text: String, val user: User): Item<ViewHolder>() {
+class ChatRightItem(val text: String, val user: User): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.textview_right.text = text
 
         val targetImageView = viewHolder.itemView.iv_right
-        Picasso.get().load(R.drawable.cat_dp).into(targetImageView)
+        Picasso.get().load(R.drawable.anon).into(targetImageView)
     }
     override fun getLayout(): Int {
         return R.layout.message_right

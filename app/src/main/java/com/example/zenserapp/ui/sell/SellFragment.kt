@@ -17,7 +17,7 @@ import com.example.zenserapp.databinding.FragmentSellBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenserapp.MainActivity
 import com.example.zenserapp.R
-import com.example.zenserapp.ui.chat.ChatPage
+//import com.example.zenserapp.ui.chat.ChatPage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage

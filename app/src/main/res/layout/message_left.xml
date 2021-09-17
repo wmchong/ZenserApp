@@ -18,6 +18,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/dark_grey"
             android:src="@drawable/cat_dp" />
 
             <TextView

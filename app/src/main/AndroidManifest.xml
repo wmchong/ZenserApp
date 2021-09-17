@@ -31,9 +31,6 @@
             android:name=".ForgotPassword"
             android:exported="true" />
         <activity
-            android:name=".ui.chat.ChatPage"
-            android:exported="true" />
-        <activity
             android:name=".LoginPage"
             android:exported="true" />
         <activity

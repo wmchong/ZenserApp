@@ -4,23 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.zenserapp.R
 import com.example.zenserapp.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_new_message.*
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
 
@@ -33,14 +26,14 @@ class NewMessageActivity : AppCompatActivity() {
         actionbar?.title = "Select User"
         actionbar?.setDisplayHomeAsUpEnabled(true)
 
-        fetchUsers()
+        retrieveUsers()
     }
 
     companion object {
         val USER_KEY = "USER_KEY"
     }
 
-    private fun fetchUsers() {
+    private fun retrieveUsers() {
         val ref = FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
 
@@ -59,7 +52,6 @@ class NewMessageActivity : AppCompatActivity() {
 
                     val userItem = item as UserItem
                     val intent = Intent(view.context, ChatLogActivity::class.java)
-                    //intent.putExtra(USER_KEY, userItem.user.username)
                     intent.putExtra(USER_KEY, userItem.user)
                     startActivity(intent)
 

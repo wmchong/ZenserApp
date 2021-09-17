@@ -13,7 +13,7 @@ import com.example.zenserapp.R
 import com.example.zenserapp.User
 import com.example.zenserapp.databinding.ActivityProductDetailsBinding
 import com.example.zenserapp.ui.chat.ChatLogActivity
-import com.example.zenserapp.ui.chat.ChatPage
+//import com.example.zenserapp.ui.chat.ChatPage
 import com.example.zenserapp.ui.chat.NewMessageActivity.Companion.USER_KEY
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -83,6 +83,7 @@ class ProductDetails : AppCompatActivity() {
         })
 
         //chat button
+
         binding.btnChat.setOnClickListener {
             val intent = Intent(this, ChatLogActivity::class.java)
             intent.putExtra(USER_KEY, user)
@@ -128,10 +129,12 @@ class ProductDetails : AppCompatActivity() {
 
             //show dialog
             val offerDialogAlert = dialogBuilder.show()
+
             //when user clicks on cancel button
             dialogView.findViewById<Button>(R.id.btnCancel).setOnClickListener {
                 offerDialogAlert.dismiss()
             }
+
             //when user confirms the offer
             dialogView.findViewById<Button>(R.id.btnConfirmOffer).setOnClickListener {
                 //get input price from EditTexts of custom layout

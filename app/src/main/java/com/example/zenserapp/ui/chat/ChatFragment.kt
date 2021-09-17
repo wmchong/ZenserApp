@@ -9,18 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zenserapp.R
 import android.view.Menu
 import android.view.MenuInflater
-import com.example.zenserapp.RegisterPage
 import com.example.zenserapp.User
 import com.example.zenserapp.databinding.FragmentChatBinding
 import com.example.zenserapp.ui.chat.NewMessageActivity.Companion.USER_KEY
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.fragment_chat.*
-import kotlinx.android.synthetic.main.item_layout.view.*
 
 
 class ChatFragment : Fragment() {
@@ -55,11 +50,11 @@ class ChatFragment : Fragment() {
             startActivity(intent)
         }
 
-        listenForLatestMessages()
+        loadLatestMessages()
 
         setHasOptionsMenu(true)
 
-        fetchCurrentUser()
+        retrieveCurrentUser()
         binding.recyclerviewFragmentChat.adapter = adapter
         return binding.root
     }
@@ -77,7 +72,7 @@ class ChatFragment : Fragment() {
         }
     }
 
-    private fun listenForLatestMessages() {
+    private fun loadLatestMessages() {
         val fromId = FirebaseAuth.getInstance().uid
         val ref = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
         ref.addChildEventListener(object: ChildEventListener{
@@ -108,7 +103,7 @@ class ChatFragment : Fragment() {
         })
     }
 
-    private fun fetchCurrentUser() {
+    private fun retrieveCurrentUser() {
         val uid = FirebaseAuth.getInstance().uid
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
