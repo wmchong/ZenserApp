@@ -2,7 +2,7 @@
 
 Zenser is an android application built by a group of studentd for an assignment.
 
-IDE: Android Studio (lateset version)\
+IDE: Android Studio (latest version)\
 Preferred Emulator Device: Pixel 4 API 27\
 Android Version: Oreo 8.1
 
